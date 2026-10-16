@@ -4,53 +4,103 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jamuna Bank Watch</title>
+<meta name="description" content="An AI forecast of which stretches of riverbank in Bangladesh the river is likely to take this monsoon.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Hind+Siliguri:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Hind+Siliguri:wght@500&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="bar">
-  <a class="name" href="#risk">Jamuna Bank Watch</a>
-  <span class="proto" title="Research prototype. No warnings are actually sent.">Prototype</span>
-  <div class="place" role="group" aria-label="Upazila">
-    <span class="place-label" id="place-label">Upazila</span>
-    <div class="seg" id="sites" aria-labelledby="place-label"></div>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="name" href="#">Jamuna Bank Watch</a>
+    <nav class="jump" aria-label="Sections">
+      <a href="#forecast">Forecast</a>
+      <a href="#proof">Did it work?</a>
+      <a href="#how">How it works</a>
+    </nav>
   </div>
-  <a class="cmp-link" href="#compare">Predicted vs actual</a>
-  <a class="about-link" href="#about">How it works</a>
 </header>
 
-<main id="app">
-  <section class="map-pane" aria-label="Map">
-    <div id="map"></div>
+<main>
+  <section class="hero wrap">
+    <p class="tag">Research prototype · no warnings are actually sent</p>
+    <h1>Every monsoon, Bangladesh's rivers swallow homes and farmland. This tool predicts <em>where</em>, before it happens.</h1>
+    <p class="lede">An AI model reads decades of satellite images and marks each 240&nbsp;m stretch of riverbank by how likely it is to be
+      lost this monsoon, so families and officials know where to act first.</p>
   </section>
 
-  <section class="panel" aria-label="Details">
-    <nav class="views" id="views" aria-label="Views">
-      <a href="#risk" data-view="risk">Risk this monsoon</a>
-      <a href="#radar" data-view="radar">Latest radar</a>
-      <a href="#record" data-view="record">Track record</a>
-      <a href="#compare" data-view="compare">Predicted vs actual</a>
-    </nav>
-    <div class="panel-body" id="content" aria-live="polite"></div>
+  <section class="sec wrap" id="forecast" aria-labelledby="h-forecast">
+    <div class="sec-head">
+      <p class="step">1 · This year</p>
+      <h2 id="h-forecast">Where the river is likely to strike in <span id="year">2026</span></h2>
+    </div>
+    <div class="forecast">
+      <div class="map-card"><div id="map" class="map"></div></div>
+      <aside class="side">
+        <div class="seg" id="sites" role="group" aria-label="Upazila"></div>
+        <div class="stats" id="stats"></div>
+        <div class="key">
+          <span><i style="background:var(--high)"></i>High alert</span>
+          <span><i style="background:var(--watch)"></i>Watch</span>
+          <span><i class="dot"></i>Erosion already seen by radar</span>
+        </div>
+        <h3 class="mini">Riskiest stretches <span>tap to zoom</span></h3>
+        <ol class="list" id="list"></ol>
+      </aside>
+    </div>
   </section>
 
-  <article class="page" id="page" hidden></article>
-  <section class="compare" id="compare" aria-label="Predicted vs actual" hidden></section>
+  <section class="sec wrap" id="proof" aria-labelledby="h-proof">
+    <div class="sec-head">
+      <p class="step">2 · The test</p>
+      <h2 id="h-proof">Did it work? A past forecast next to what really happened</h2>
+      <p class="sub">The forecast was made in March, before the monsoon, by a model that had never seen that year.</p>
+    </div>
+    <div id="compare"></div>
+  </section>
+
+  <section class="sec wrap" id="score" aria-labelledby="h-score">
+    <div class="sec-head">
+      <p class="step">3 · The score</p>
+      <h2 id="h-score"></h2>
+      <p class="sub" id="score-sub"></p>
+    </div>
+    <div class="bars" id="bars"></div>
+  </section>
+
+  <section class="sec wrap" id="how" aria-labelledby="h-how">
+    <div class="sec-head">
+      <p class="step">4 · How it works</p>
+      <h2 id="h-how">Three steps, every year</h2>
+    </div>
+    <ol class="steps">
+      <li><span class="when">March, before the rains</span><b>Predict</b>
+        <p>The AI studies the dry-season satellite picture: how close the channel is, whether it is moving in, and where land
+          was lost before. Each stretch of bank gets a risk score.</p></li>
+      <li><span class="when">Every 12 days in the monsoon</span><b>Confirm</b>
+        <p>Clouds hide the ground all monsoon, but radar sees through them. A second AI model checks where bank is actually
+          turning into river.</p></li>
+      <li><span class="when">When both agree</span><b>Warn</b>
+        <p>People living on a high-alert stretch would get a Bangla SMS or voice call, and local officials a map. In this prototype
+          nothing is sent.</p></li>
+    </ol>
+  </section>
 </main>
 
 <footer class="foot">
-  <p>Imagery: Copernicus Sentinel-1/2 (ESA), Landsat 5/7/8/9 (USGS/NASA), processed in Google Earth Engine.
-  Boundaries © OpenStreetMap contributors (ODbL); union points OCHA/BBS (CC BY-IGO). Basemap © Esri.
-  Warnings shown here are simulated. Nothing is sent. <span id="generated"></span></p>
+  <div class="wrap">
+    <p><b>Limits.</b> Not every High alert erodes: use it to decide where to check first. The model can't see bank protection such as
+      geobags, so protected banks may be over-flagged.</p>
+    <p>Imagery: Copernicus Sentinel-1/2 (ESA), Landsat (USGS/NASA), via Google Earth Engine. Boundaries © OpenStreetMap contributors.
+      Basemap © Esri. <a href="https://github.com/me-sakibbb/river_sentinel_prototype">Code and full technical results</a></p>
+  </div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="data/results.js" onerror="window.RESULTS=null"></script>
 <script src="data/forecast.js" onerror="window.FORECAST=null"></script>
-<script src="data/trackrecord.js" onerror="window.TRACK=null"></script>
 <script src="data/showcase.js" onerror="window.SHOWCASE=null"></script>
 <script src="app.js"></script>
 </body>
