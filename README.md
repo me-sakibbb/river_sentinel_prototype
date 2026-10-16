@@ -2,6 +2,8 @@
 ### Forecast → detect → warn: riverbank erosion in Bangladesh, from free satellite data
 *GP FutureMakers 2026 prototype. Pilot site: Kazipur and Chauhali upazilas, Sirajganj.*
 
+**Live dashboard: https://me-sakibbb.github.io/river_sentinel_prototype/**
+
 Every monsoon the Jamuna and Padma take thousands of hectares of homes and
 farmland. This prototype tells people **which stretch of bank is likely to go
 next**, so they can act before it does. It works alongside the yearly CEGIS /
@@ -62,7 +64,7 @@ python -m venv .venv
 .venv\Scripts\python evaluate.py    # reproduces every score above, offline
 ```
 
-Open `web/index.html` in a browser for the dashboard. Re-downloading imagery
+Open `web/index.html` in a browser for a local copy of the dashboard. Re-downloading imagery
 needs a Google Earth Engine project; see the technical details.
 
 ## More
