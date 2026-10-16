@@ -1,0 +1,244 @@
+{
+ "per_year": {
+  "2021": {
+   "ai": {
+    "auc": 0.923,
+    "capture_top10": 0.703,
+    "capture_top20": 0.877,
+    "cells": 11216,
+    "eroded_cells": 470,
+    "lost_ha": 1322.7
+   },
+   "closest_to_river": {
+    "auc": 0.876,
+    "capture_top10": 0.47,
+    "capture_top20": 0.766,
+    "cells": 11216,
+    "eroded_cells": 470,
+    "lost_ha": 1322.7
+   },
+   "eroded_last_year": {
+    "auc": 0.897,
+    "capture_top10": 0.612,
+    "capture_top20": 0.764,
+    "cells": 11216,
+    "eroded_cells": 470,
+    "lost_ha": 1322.7
+   }
+  },
+  "2022": {
+   "ai": {
+    "auc": 0.903,
+    "capture_top10": 0.589,
+    "capture_top20": 0.802,
+    "cells": 13734,
+    "eroded_cells": 727,
+    "lost_ha": 2173.9
+   },
+   "closest_to_river": {
+    "auc": 0.819,
+    "capture_top10": 0.321,
+    "capture_top20": 0.59,
+    "cells": 13734,
+    "eroded_cells": 727,
+    "lost_ha": 2173.9
+   },
+   "eroded_last_year": {
+    "auc": 0.82,
+    "capture_top10": 0.421,
+    "capture_top20": 0.559,
+    "cells": 13734,
+    "eroded_cells": 727,
+    "lost_ha": 2173.9
+   }
+  },
+  "2023": {
+   "ai": {
+    "auc": 0.877,
+    "capture_top10": 0.529,
+    "capture_top20": 0.732,
+    "cells": 10660,
+    "eroded_cells": 762,
+    "lost_ha": 2360.6
+   },
+   "closest_to_river": {
+    "auc": 0.837,
+    "capture_top10": 0.347,
+    "capture_top20": 0.63,
+    "cells": 10660,
+    "eroded_cells": 762,
+    "lost_ha": 2360.6
+   },
+   "eroded_last_year": {
+    "auc": 0.87,
+    "capture_top10": 0.544,
+    "capture_top20": 0.72,
+    "cells": 10660,
+    "eroded_cells": 762,
+    "lost_ha": 2360.6
+   }
+  },
+  "2024": {
+   "ai": {
+    "auc": 0.9,
+    "capture_top10": 0.581,
+    "capture_top20": 0.792,
+    "cells": 14447,
+    "eroded_cells": 912,
+    "lost_ha": 2895.1
+   },
+   "closest_to_river": {
+    "auc": 0.814,
+    "capture_top10": 0.324,
+    "capture_top20": 0.568,
+    "cells": 14447,
+    "eroded_cells": 912,
+    "lost_ha": 2895.1
+   },
+   "eroded_last_year": {
+    "auc": 0.834,
+    "capture_top10": 0.455,
+    "capture_top20": 0.634,
+    "cells": 14447,
+    "eroded_cells": 912,
+    "lost_ha": 2895.1
+   }
+  },
+  "2025": {
+   "ai": {
+    "auc": 0.94,
+    "capture_top10": 0.778,
+    "capture_top20": 0.897,
+    "cells": 13391,
+    "eroded_cells": 516,
+    "lost_ha": 1453.9
+   },
+   "closest_to_river": {
+    "auc": 0.863,
+    "capture_top10": 0.438,
+    "capture_top20": 0.769,
+    "cells": 13391,
+    "eroded_cells": 516,
+    "lost_ha": 1453.9
+   },
+   "eroded_last_year": {
+    "auc": 0.893,
+    "capture_top10": 0.634,
+    "capture_top20": 0.764,
+    "cells": 13391,
+    "eroded_cells": 516,
+    "lost_ha": 1453.9
+   }
+  }
+ },
+ "overall": {
+  "ai": {
+   "auc": 0.904,
+   "capture_top10": 0.612,
+   "capture_top20": 0.807,
+   "cells": 63448,
+   "eroded_cells": 3387,
+   "lost_ha": 10206.4
+  },
+  "closest_to_river": {
+   "auc": 0.835,
+   "capture_top10": 0.359,
+   "capture_top20": 0.646,
+   "cells": 63448,
+   "eroded_cells": 3387,
+   "lost_ha": 10206.4
+  },
+  "eroded_last_year": {
+   "auc": 0.856,
+   "capture_top10": 0.514,
+   "capture_top20": 0.672,
+   "cells": 63448,
+   "eroded_cells": 3387,
+   "lost_ha": 10206.4
+  }
+ },
+ "sites": {
+  "ai": {
+   "auc": 0.871,
+   "capture_top10": 0.556,
+   "capture_top20": 0.74,
+   "cells": 17820,
+   "eroded_cells": 923,
+   "lost_ha": 2777.3
+  },
+  "closest_to_river": {
+   "auc": 0.83,
+   "capture_top10": 0.366,
+   "capture_top20": 0.626,
+   "cells": 17820,
+   "eroded_cells": 923,
+   "lost_ha": 2777.3
+  },
+  "eroded_last_year": {
+   "auc": 0.85,
+   "capture_top10": 0.487,
+   "capture_top20": 0.666,
+   "cells": 17820,
+   "eroded_cells": 923,
+   "lost_ha": 2777.3
+  }
+ },
+ "shuffled_label_check": {
+  "auc_min": 0.365,
+  "auc_max": 0.503,
+  "prediction_spread_pct_points": 0.25
+ },
+ "importance": {
+  "water all around (500 m)": 0.0272,
+  "open water upstream": 0.0259,
+  "age of the land": 0.0098,
+  "water all around (2 km)": 0.0089,
+  "erosion nearby, last 3 years": 0.0085,
+  "distance to a main channel": 0.0074,
+  "erosion nearby last year": 0.0073,
+  "distance to the river": 0.0057,
+  "main channel approaching (last year)": 0.0043,
+  "main channel approaching (3-year trend)": 0.0035,
+  "vegetation": 0.0022,
+  "char (island) rather than mainland": 0.0019,
+  "amount of land in the cell": 0.0009,
+  "erosion in this cell last year": 0.0008
+ },
+ "issued_from": "dry season (Jan-Mar) 2026",
+ "train_years": [
+  1998,
+  2020
+ ],
+ "test_years": [
+  2021,
+  2025
+ ],
+ "min_loss_ha": 1.0,
+ "cell_m": 240,
+ "check_2026": {
+  "jun2026/kazipur": {
+   "detected_bank_erosion_ha": 463.0,
+   "share_in_top20pct_forecast": 0.035,
+   "share_near_any_scored_cell": 0.379,
+   "share_of_scored_in_top20pct": 0.094
+  },
+  "jun2026/chauhali": {
+   "detected_bank_erosion_ha": 105.5,
+   "share_in_top20pct_forecast": 0.452,
+   "share_near_any_scored_cell": 0.77,
+   "share_of_scored_in_top20pct": 0.587
+  },
+  "sep2026/kazipur": {
+   "detected_bank_erosion_ha": 25.7,
+   "share_in_top20pct_forecast": 0.135,
+   "share_near_any_scored_cell": 0.269,
+   "share_of_scored_in_top20pct": 0.499
+  },
+  "sep2026/chauhali": {
+   "detected_bank_erosion_ha": 48.4,
+   "share_in_top20pct_forecast": 0.28,
+   "share_near_any_scored_cell": 0.372,
+   "share_of_scored_in_top20pct": 0.753
+  }
+ }
+}

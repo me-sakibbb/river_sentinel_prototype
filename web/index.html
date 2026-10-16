@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jamuna Bank Watch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Hind+Siliguri:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="name" href="#risk">Jamuna Bank Watch</a>
+  <span class="proto" title="Research prototype. No warnings are actually sent.">Prototype</span>
+  <div class="place" role="group" aria-label="Upazila">
+    <span class="place-label" id="place-label">Upazila</span>
+    <div class="seg" id="sites" aria-labelledby="place-label"></div>
+  </div>
+  <a class="cmp-link" href="#compare">Predicted vs actual</a>
+  <a class="about-link" href="#about">How it works</a>
+</header>
+
+<main id="app">
+  <section class="map-pane" aria-label="Map">
+    <div id="map"></div>
+  </section>
+
+  <section class="panel" aria-label="Details">
+    <nav class="views" id="views" aria-label="Views">
+      <a href="#risk" data-view="risk">Risk this monsoon</a>
+      <a href="#radar" data-view="radar">Latest radar</a>
+      <a href="#record" data-view="record">Track record</a>
+      <a href="#compare" data-view="compare">Predicted vs actual</a>
+    </nav>
+    <div class="panel-body" id="content" aria-live="polite"></div>
+  </section>
+
+  <article class="page" id="page" hidden></article>
+  <section class="compare" id="compare" aria-label="Predicted vs actual" hidden></section>
+</main>
+
+<footer class="foot">
+  <p>Imagery: Copernicus Sentinel-1/2 (ESA), Landsat 5/7/8/9 (USGS/NASA), processed in Google Earth Engine.
+  Boundaries © OpenStreetMap contributors (ODbL); union points OCHA/BBS (CC BY-IGO). Basemap © Esri.
+  Warnings shown here are simulated. Nothing is sent. <span id="generated"></span></p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="data/results.js" onerror="window.RESULTS=null"></script>
+<script src="data/forecast.js" onerror="window.FORECAST=null"></script>
+<script src="data/trackrecord.js" onerror="window.TRACK=null"></script>
+<script src="data/showcase.js" onerror="window.SHOWCASE=null"></script>
+<script src="app.js"></script>
+</body>
+</html>

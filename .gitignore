@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+
+# Landsat dry-season maps for the forecast (~1 GB; re-download with run_forecast.py).
+# The per-reach cell tables (table.npz) are small enough to share, so
+# `python evaluate.py` can reproduce the scores without Earth Engine.
+data/forecast/**/dry_*.npz
+data/forecast/predictions_v1.npz
+
+# Local run logs
+*.log
+.pytest_cache/
+data/logs/
+*.err
+
+# Run output nobody reads (the live risks are also in predictions.npz)
+data/forecast/forecast_latest.npz

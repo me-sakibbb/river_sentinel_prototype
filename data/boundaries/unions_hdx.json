@@ -1,0 +1,2398 @@
+{
+"source": "OCHA / Bangladesh Bureau of Statistics admin-4 (union) points, v03 valid 2020-11-13, https://data.humdata.org/dataset/cod-ab-bgd",
+"license": "CC BY-IGO",
+"unions": [
+{
+"union": "Adarbhita",
+"upazila": "Madarganj",
+"district": "Jamalpur",
+"lat": 24.8339,
+"lon": 89.77518,
+"pcode": "BD45395811"
+},
+{
+"union": "Adra",
+"upazila": "Melandaha",
+"district": "Jamalpur",
+"lat": 24.95134,
+"lon": 89.82334,
+"pcode": "BD45396117"
+},
+{
+"union": "Alamnagar",
+"upazila": "Gopalpur",
+"district": "Tangail",
+"lat": 24.54767,
+"lon": 89.89664,
+"pcode": "BD30933817"
+},
+{
+"union": "Anehola",
+"upazila": "Ghatail",
+"district": "Tangail",
+"lat": 24.4321,
+"lon": 89.91415,
+"pcode": "BD30932815"
+},
+{
+"union": "Aona",
+"upazila": "Sarishabari",
+"district": "Jamalpur",
+"lat": 24.6488,
+"lon": 89.82626,
+"pcode": "BD45398510"
+},
+{
+"union": "Arjuna",
+"upazila": "Bhuapur",
+"district": "Tangail",
+"lat": 24.53204,
+"lon": 89.7605,
+"pcode": "BD30931913"
+},
+{
+"union": "Atia",
+"upazila": "Delduar",
+"district": "Tangail",
+"lat": 24.16829,
+"lon": 89.91542,
+"pcode": "BD30932311"
+},
+{
+"union": "Bachamara",
+"upazila": "Daulatpur",
+"district": "Manikganj",
+"lat": 23.97891,
+"lon": 89.74753,
+"pcode": "BD30561017"
+},
+{
+"union": "Badiakhali",
+"upazila": "Gaibandha Sadar",
+"district": "Gaibandha",
+"lat": 25.24918,
+"lon": 89.53732,
+"pcode": "BD55322412"
+},
+{
+"union": "Baghbati",
+"upazila": "Sirajganj Sadar",
+"district": "Sirajganj",
+"lat": 24.51836,
+"lon": 89.6235,
+"pcode": "BD50887816"
+},
+{
+"union": "Baghil",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.29201,
+"lon": 89.87175,
+"pcode": "BD30939537"
+},
+{
+"union": "Bagutia",
+"upazila": "Chauhali",
+"district": "Sirajganj",
+"lat": 24.06537,
+"lon": 89.7947,
+"pcode": "BD50882721"
+},
+{
+"union": "Bahadurabad",
+"upazila": "Dewanganj",
+"district": "Jamalpur",
+"lat": 25.22093,
+"lon": 89.75702,
+"pcode": "BD45391517"
+},
+{
+"union": "Bahuli",
+"upazila": "Sirajganj Sadar",
+"district": "Sirajganj",
+"lat": 24.47271,
+"lon": 89.64485,
+"pcode": "BD50887817"
+},
+{
+"union": "Bakshiganj",
+"upazila": "Bakshiganj",
+"district": "Jamalpur",
+"lat": 25.20256,
+"lon": 89.84766,
+"pcode": "BD45390723"
+},
+{
+"union": "Balia Dighi",
+"upazila": "Gabtali",
+"district": "Bogra",
+"lat": 24.80269,
+"lon": 89.51386,
+"pcode": "BD50104011"
+},
+{
+"union": "Balibhadra",
+"upazila": "Dhanbari",
+"district": "Tangail",
+"lat": 24.64662,
+"lon": 89.88256,
+"pcode": "BD30932521"
+},
+{
+"union": "Balijuri",
+"upazila": "Madarganj",
+"district": "Jamalpur",
+"lat": 24.89096,
+"lon": 89.67924,
+"pcode": "BD45395823"
+},
+{
+"union": "Balua",
+"upazila": "Sonatola",
+"district": "Bogra",
+"lat": 25.02829,
+"lon": 89.46391,
+"pcode": "BD50109510"
+},
+{
+"union": "Bangala",
+"upazila": "Ullah Para",
+"district": "Sirajganj",
+"lat": 24.34997,
+"lon": 89.46286,
+"pcode": "BD50889412"
+},
+{
+"union": "Bangra",
+"upazila": "Kalihati",
+"district": "Tangail",
+"lat": 24.37199,
+"lon": 89.96034,
+"pcode": "BD30934714"
+},
+{
+"union": "Baniajan",
+"upazila": "Dhanbari",
+"district": "Tangail",
+"lat": 24.73148,
+"lon": 89.92406,
+"pcode": "BD30932525"
+},
+{
+"union": "Banwarinagar",
+"upazila": "Faridpur",
+"district": "Pabna",
+"lat": 24.1596,
+"lon": 89.46685,
+"pcode": "BD50763310"
+},
+{
+"union": "Bara Dhul",
+"upazila": "Belkuchi",
+"district": "Sirajganj",
+"lat": 24.28717,
+"lon": 89.75874,
+"pcode": "BD50881113"
+},
+{
+"union": "Bara Pangashi",
+"upazila": "Ullah Para",
+"district": "Sirajganj",
+"lat": 24.29079,
+"lon": 89.47657,
+"pcode": "BD50889421"
+},
+{
+"union": "Barahar",
+"upazila": "Ullah Para",
+"district": "Sirajganj",
+"lat": 24.36453,
+"lon": 89.57536,
+"pcode": "BD50889414"
+},
+{
+"union": "Baraid",
+"upazila": "Saturia",
+"district": "Manikganj",
+"lat": 23.99114,
+"lon": 89.94501,
+"pcode": "BD30567028"
+},
+{
+"union": "Battajore",
+"upazila": "Bakshiganj",
+"district": "Jamalpur",
+"lat": 25.23107,
+"lon": 89.8864,
+"pcode": "BD45390735"
+},
+{
+"union": "Bekra",
+"upazila": "Nagarpur",
+"district": "Tangail",
+"lat": 24.03607,
+"lon": 89.84954,
+"pcode": "BD30937610"
+},
+{
+"union": "Belgachha",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.11017,
+"lon": 89.66846,
+"pcode": "BD45392913"
+},
+{
+"union": "Belkuchi",
+"upazila": "Belkuchi",
+"district": "Sirajganj",
+"lat": 24.31947,
+"lon": 89.73402,
+"pcode": "BD50881127"
+},
+{
+"union": "Belkuchi Paurashava",
+"upazila": "Belkuchi",
+"district": "Sirajganj",
+"lat": 24.28635,
+"lon": 89.71398,
+"pcode": "BD50881199"
+},
+{
+"union": "Beltail",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.20668,
+"lon": 89.64336,
+"pcode": "BD50886712"
+},
+{
+"union": "Bera Paurashava",
+"upazila": "Bera",
+"district": "Pabna",
+"lat": 24.06929,
+"lon": 89.63138,
+"pcode": "BD50761699"
+},
+{
+"union": "Bhadra",
+"upazila": "Nagarpur",
+"district": "Tangail",
+"lat": 23.98877,
+"lon": 89.89104,
+"pcode": "BD30937612"
+},
+{
+"union": "Bhadraghat",
+"upazila": "Kamarkhanda",
+"district": "Sirajganj",
+"lat": 24.40908,
+"lon": 89.60565,
+"pcode": "BD50884419"
+},
+{
+"union": "Bhandarbari",
+"upazila": "Dhunat",
+"district": "Bogra",
+"lat": 24.72208,
+"lon": 89.63371,
+"pcode": "BD50102715"
+},
+{
+"union": "Bhangabari",
+"upazila": "Belkuchi",
+"district": "Sirajganj",
+"lat": 24.31043,
+"lon": 89.67564,
+"pcode": "BD50881140"
+},
+{
+"union": "Bhara",
+"upazila": "Nagarpur",
+"district": "Tangail",
+"lat": 24.1319,
+"lon": 89.84471,
+"pcode": "BD30937614"
+},
+{
+"union": "Bhartkhali",
+"upazila": "Saghatta",
+"district": "Gaibandha",
+"lat": 25.20462,
+"lon": 89.57024,
+"pcode": "BD55328813"
+},
+{
+"union": "Bhatara",
+"upazila": "Sarishabari",
+"district": "Jamalpur",
+"lat": 24.79708,
+"lon": 89.87174,
+"pcode": "BD45398521"
+},
+{
+"union": "Bhelabari",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 24.80274,
+"lon": 89.55155,
+"pcode": "BD50108111"
+},
+{
+"union": "Bhelua",
+"upazila": "Sreebardi",
+"district": "Sherpur",
+"lat": 25.09184,
+"lon": 89.92875,
+"pcode": "BD45899015"
+},
+{
+"union": "Bhuapur Paurashava",
+"upazila": "Bhuapur",
+"district": "Tangail",
+"lat": 24.46959,
+"lon": 89.86191,
+"pcode": "BD30931999"
+},
+{
+"union": "Birhati",
+"upazila": "Bhuapur",
+"district": "Tangail",
+"lat": 24.42481,
+"lon": 89.86863,
+"pcode": "BD30931927"
+},
+{
+"union": "Birtara",
+"upazila": "Dhanbari",
+"district": "Tangail",
+"lat": 24.71693,
+"lon": 89.89438,
+"pcode": "BD30932538"
+},
+{
+"union": "Bohail",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 24.78326,
+"lon": 89.65091,
+"pcode": "BD50108112"
+},
+{
+"union": "Bonar Para",
+"upazila": "Saghatta",
+"district": "Gaibandha",
+"lat": 25.16815,
+"lon": 89.52152,
+"pcode": "BD55328819"
+},
+{
+"union": "Brahmagachha",
+"upazila": "Royganj",
+"district": "Sirajganj",
+"lat": 24.52531,
+"lon": 89.57933,
+"pcode": "BD50886113"
+},
+{
+"union": "Chak Mirpur",
+"upazila": "Daulatpur",
+"district": "Manikganj",
+"lat": 23.95223,
+"lon": 89.83941,
+"pcode": "BD30561028"
+},
+{
+"union": "Chakla",
+"upazila": "Bera",
+"district": "Pabna",
+"lat": 24.01205,
+"lon": 89.62709,
+"pcode": "BD50761615"
+},
+{
+"union": "Chalitadanga",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.6499,
+"lon": 89.61066,
+"pcode": "BD50885017"
+},
+{
+"union": "Chaluabari",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 25.00288,
+"lon": 89.62142,
+"pcode": "BD50108119"
+},
+{
+"union": "Chandaikona",
+"upazila": "Royganj",
+"district": "Sirajganj",
+"lat": 24.52186,
+"lon": 89.49841,
+"pcode": "BD50886119"
+},
+{
+"union": "Chandan Baisha",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 24.80091,
+"lon": 89.60544,
+"pcode": "BD50108125"
+},
+{
+"union": "Char Banipakuri",
+"upazila": "Melandaha",
+"district": "Jamalpur",
+"lat": 24.9329,
+"lon": 89.87152,
+"pcode": "BD45396119"
+},
+{
+"union": "Char Girish",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.69663,
+"lon": 89.75428,
+"pcode": "BD50885015"
+},
+{
+"union": "Char Goalini",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.04344,
+"lon": 89.84843,
+"pcode": "BD45392915"
+},
+{
+"union": "Char Mucharia",
+"upazila": "Sherpur Sadar",
+"district": "Sherpur",
+"lat": 25.0022,
+"lon": 89.94471,
+"pcode": "BD45898827"
+},
+{
+"union": "Char Pakerdaha",
+"upazila": "Madarganj",
+"district": "Jamalpur",
+"lat": 24.94605,
+"lon": 89.70818,
+"pcode": "BD45395835"
+},
+{
+"union": "Char Pakshimari",
+"upazila": "Sherpur Sadar",
+"district": "Sherpur",
+"lat": 24.95458,
+"lon": 89.96247,
+"pcode": "BD45898833"
+},
+{
+"union": "Char Putimari",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.03525,
+"lon": 89.87291,
+"pcode": "BD45392923"
+},
+{
+"union": "Char Sherpur",
+"upazila": "Sherpur Sadar",
+"district": "Sherpur",
+"lat": 25.03184,
+"lon": 89.96673,
+"pcode": "BD45898840"
+},
+{
+"union": "Charkatari",
+"upazila": "Daulatpur",
+"district": "Manikganj",
+"lat": 24.00568,
+"lon": 89.75431,
+"pcode": "BD30561038"
+},
+{
+"union": "Chaukibari",
+"upazila": "Dhunat",
+"district": "Bogra",
+"lat": 24.62316,
+"lon": 89.5266,
+"pcode": "BD50102719"
+},
+{
+"union": "Chhangachha",
+"upazila": "Sirajganj Sadar",
+"district": "Sirajganj",
+"lat": 24.52711,
+"lon": 89.67497,
+"pcode": "BD50887894"
+},
+{
+"union": "Chikajani",
+"upazila": "Dewanganj",
+"district": "Jamalpur",
+"lat": 25.20126,
+"lon": 89.71436,
+"pcode": "BD45391536"
+},
+{
+"union": "Chikashi",
+"upazila": "Dhunat",
+"district": "Bogra",
+"lat": 24.75062,
+"lon": 89.56549,
+"pcode": "BD50102728"
+},
+{
+"union": "Chinadulli",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.06876,
+"lon": 89.71786,
+"pcode": "BD45392931"
+},
+{
+"union": "Chukaibari",
+"upazila": "Dewanganj",
+"district": "Jamalpur",
+"lat": 25.16595,
+"lon": 89.71419,
+"pcode": "BD45391543"
+},
+{
+"union": "Danya",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.25829,
+"lon": 89.87397,
+"pcode": "BD30939539"
+},
+{
+"union": "Dashkia",
+"upazila": "Kalihati",
+"district": "Tangail",
+"lat": 24.35145,
+"lon": 89.88339,
+"pcode": "BD30934725"
+},
+{
+"union": "Daulatpur",
+"upazila": "Belkuchi",
+"district": "Sirajganj",
+"lat": 24.25646,
+"lon": 89.69047,
+"pcode": "BD50881154"
+},
+{
+"union": "Delduar",
+"upazila": "Delduar",
+"district": "Tangail",
+"lat": 24.16492,
+"lon": 89.96363,
+"pcode": "BD30932323"
+},
+{
+"union": "Demra",
+"upazila": "Faridpur",
+"district": "Pabna",
+"lat": 24.15098,
+"lon": 89.47617,
+"pcode": "BD50763342"
+},
+{
+"union": "Deoli",
+"upazila": "Delduar",
+"district": "Tangail",
+"lat": 24.13899,
+"lon": 89.87474,
+"pcode": "BD30932335"
+},
+{
+"union": "Dewanganj",
+"upazila": "Dewanganj",
+"district": "Jamalpur",
+"lat": 25.13082,
+"lon": 89.78226,
+"pcode": "BD45391558"
+},
+{
+"union": "Dewanganj Paurashava",
+"upazila": "Dewanganj",
+"district": "Jamalpur",
+"lat": 25.16847,
+"lon": 89.77196,
+"pcode": "BD45391599"
+},
+{
+"union": "Dhamsar",
+"upazila": "Daulatpur",
+"district": "Manikganj",
+"lat": 23.95698,
+"lon": 89.92692,
+"pcode": "BD30561057"
+},
+{
+"union": "Dhanbari Paurashava",
+"upazila": "Dhanbari",
+"district": "Tangail",
+"lat": 24.6817,
+"lon": 89.95056,
+"pcode": "BD30932599"
+},
+{
+"union": "Dhangara",
+"upazila": "Royganj",
+"district": "Sirajganj",
+"lat": 24.51819,
+"lon": 89.55323,
+"pcode": "BD50886138"
+},
+{
+"union": "Dhopadaha",
+"upazila": "Santhia",
+"district": "Pabna",
+"lat": 24.09073,
+"lon": 89.52298,
+"pcode": "BD50767225"
+},
+{
+"union": "Dhopakandi",
+"upazila": "Gopalpur",
+"district": "Tangail",
+"lat": 24.57542,
+"lon": 89.96559,
+"pcode": "BD30933821"
+},
+{
+"union": "Dhopakhali",
+"upazila": "Dhanbari",
+"district": "Tangail",
+"lat": 24.64686,
+"lon": 89.95987,
+"pcode": "BD30932557"
+},
+{
+"union": "Dhubaria",
+"upazila": "Nagarpur",
+"district": "Tangail",
+"lat": 24.01518,
+"lon": 89.83985,
+"pcode": "BD30937636"
+},
+{
+"union": "Dhubil",
+"upazila": "Royganj",
+"district": "Sirajganj",
+"lat": 24.44216,
+"lon": 89.47571,
+"pcode": "BD50886147"
+},
+{
+"union": "Dhukaria Bera",
+"upazila": "Belkuchi",
+"district": "Sirajganj",
+"lat": 24.25119,
+"lon": 89.6387,
+"pcode": "BD50881167"
+},
+{
+"union": "Dhulauri",
+"upazila": "Santhia",
+"district": "Pabna",
+"lat": 24.109,
+"lon": 89.47728,
+"pcode": "BD50767234"
+},
+{
+"union": "Dhunat",
+"upazila": "Dhunat",
+"district": "Bogra",
+"lat": 24.66504,
+"lon": 89.52322,
+"pcode": "BD50102738"
+},
+{
+"union": "Dhunat Paurashava",
+"upazila": "Dhunat",
+"district": "Bogra",
+"lat": 24.69,
+"lon": 89.54261,
+"pcode": "BD50102799"
+},
+{
+"union": "Digalkandi",
+"upazila": "Ghatail",
+"district": "Tangail",
+"lat": 24.42097,
+"lon": 89.96904,
+"pcode": "BD30932843"
+},
+{
+"union": "Digdair",
+"upazila": "Sonatola",
+"district": "Bogra",
+"lat": 24.97087,
+"lon": 89.47215,
+"pcode": "BD50109531"
+},
+{
+"union": "Dighalia",
+"upazila": "Saturia",
+"district": "Manikganj",
+"lat": 24.01195,
+"lon": 89.96437,
+"pcode": "BD30567047"
+},
+{
+"union": "Digpaith",
+"upazila": "Jamalpur Sadar",
+"district": "Jamalpur",
+"lat": 24.77451,
+"lon": 89.94669,
+"pcode": "BD45393619"
+},
+{
+"union": "Doail",
+"upazila": "Sarishabari",
+"district": "Jamalpur",
+"lat": 24.70599,
+"lon": 89.86116,
+"pcode": "BD45398531"
+},
+{
+"union": "Duptiair",
+"upazila": "Nagarpur",
+"district": "Tangail",
+"lat": 23.99971,
+"lon": 89.80961,
+"pcode": "BD30937621"
+},
+{
+"union": "Durgahata",
+"upazila": "Gabtali",
+"district": "Bogra",
+"lat": 24.85057,
+"lon": 89.51383,
+"pcode": "BD50104027"
+},
+{
+"union": "Durganagar",
+"upazila": "Ullah Para",
+"district": "Sirajganj",
+"lat": 24.26406,
+"lon": 89.55088,
+"pcode": "BD50889429"
+},
+{
+"union": "Durgapur",
+"upazila": "Kalihati",
+"district": "Tangail",
+"lat": 24.36041,
+"lon": 89.84203,
+"pcode": "BD30934729"
+},
+{
+"union": "Durmut",
+"upazila": "Melandaha",
+"district": "Jamalpur",
+"lat": 25.05788,
+"lon": 89.80638,
+"pcode": "BD45396128"
+},
+{
+"union": "Elangi",
+"upazila": "Dhunat",
+"district": "Bogra",
+"lat": 24.69613,
+"lon": 89.50666,
+"pcode": "BD50102747"
+},
+{
+"union": "Elasin",
+"upazila": "Delduar",
+"district": "Tangail",
+"lat": 24.12224,
+"lon": 89.91184,
+"pcode": "BD30932347"
+},
+{
+"union": "Elenga",
+"upazila": "Kalihati",
+"district": "Tangail",
+"lat": 24.33817,
+"lon": 89.91174,
+"pcode": "BD30934736"
+},
+{
+"union": "Falda",
+"upazila": "Bhuapur",
+"district": "Tangail",
+"lat": 24.5148,
+"lon": 89.86817,
+"pcode": "BD30931940"
+},
+{
+"union": "Fazilhati",
+"upazila": "Delduar",
+"district": "Tangail",
+"lat": 24.11895,
+"lon": 89.96022,
+"pcode": "BD30932359"
+},
+{
+"union": "Fulbari",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 24.86018,
+"lon": 89.56162,
+"pcode": "BD50108131"
+},
+{
+"union": "Fulchhari",
+"upazila": "Fulchhari",
+"district": "Gaibandha",
+"lat": 25.15522,
+"lon": 89.63102,
+"pcode": "BD55322135"
+},
+{
+"union": "Fulkocha",
+"upazila": "Melandaha",
+"district": "Jamalpur",
+"lat": 24.91398,
+"lon": 89.82035,
+"pcode": "BD45396138"
+},
+{
+"union": "Gabsara",
+"upazila": "Bhuapur",
+"district": "Tangail",
+"lat": 24.48685,
+"lon": 89.80069,
+"pcode": "BD30931954"
+},
+{
+"union": "Gabtali",
+"upazila": "Gabtali",
+"district": "Bogra",
+"lat": 24.85773,
+"lon": 89.46398,
+"pcode": "BD50104033"
+},
+{
+"union": "Gaibandha",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.09019,
+"lon": 89.87955,
+"pcode": "BD45392939"
+},
+{
+"union": "Gala",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.29606,
+"lon": 89.91538,
+"pcode": "BD30939541"
+},
+{
+"union": "Gala",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.09383,
+"lon": 89.66229,
+"pcode": "BD50886714"
+},
+{
+"union": "Gandail",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.61647,
+"lon": 89.61835,
+"pcode": "BD50885025"
+},
+{
+"union": "Garadaha",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.23361,
+"lon": 89.58637,
+"pcode": "BD50886721"
+},
+{
+"union": "Gaurigram",
+"upazila": "Santhia",
+"district": "Pabna",
+"lat": 24.01825,
+"lon": 89.53512,
+"pcode": "BD50767243"
+},
+{
+"union": "Gayhata",
+"upazila": "Nagarpur",
+"district": "Tangail",
+"lat": 24.07095,
+"lon": 89.84769,
+"pcode": "BD30937643"
+},
+{
+"union": "Gazaria",
+"upazila": "Fulchhari",
+"district": "Gaibandha",
+"lat": 25.20699,
+"lon": 89.60596,
+"pcode": "BD55322147"
+},
+{
+"union": "Gharinda",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.26668,
+"lon": 89.95614,
+"pcode": "BD30939547"
+},
+{
+"union": "Gharjan",
+"upazila": "Chauhali",
+"district": "Sirajganj",
+"lat": 24.13975,
+"lon": 89.74773,
+"pcode": "BD50882723"
+},
+{
+"union": "Ghatail",
+"upazila": "Ghatail",
+"district": "Tangail",
+"lat": 24.50235,
+"lon": 89.95636,
+"pcode": "BD30932860"
+},
+{
+"union": "Ghatail Paurashava",
+"upazila": "Ghatail",
+"district": "Tangail",
+"lat": 24.4857,
+"lon": 89.97072,
+"pcode": "BD30932899"
+},
+{
+"union": "Ghosher Para",
+"upazila": "Melandaha",
+"district": "Jamalpur",
+"lat": 24.87554,
+"lon": 89.81073,
+"pcode": "BD45396147"
+},
+{
+"union": "Ghuridaha",
+"upazila": "Saghatta",
+"district": "Gaibandha",
+"lat": 25.11561,
+"lon": 89.55715,
+"pcode": "BD55328828"
+},
+{
+"union": "Ghurka",
+"upazila": "Royganj",
+"district": "Sirajganj",
+"lat": 24.45596,
+"lon": 89.5198,
+"pcode": "BD50886157"
+},
+{
+"union": "Goaler Char",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.11082,
+"lon": 89.83604,
+"pcode": "BD45392947"
+},
+{
+"union": "Gobindasi",
+"upazila": "Bhuapur",
+"district": "Tangail",
+"lat": 24.44121,
+"lon": 89.82742,
+"pcode": "BD30931967"
+},
+{
+"union": "Gohaliabari",
+"upazila": "Kalihati",
+"district": "Tangail",
+"lat": 24.37332,
+"lon": 89.80374,
+"pcode": "BD30934743"
+},
+{
+"union": "Golabari",
+"upazila": "Madhupur",
+"district": "Tangail",
+"lat": 24.6172,
+"lon": 89.97291,
+"pcode": "BD30935766"
+},
+{
+"union": "Gopalnagar",
+"upazila": "Dhunat",
+"district": "Bogra",
+"lat": 24.58701,
+"lon": 89.58895,
+"pcode": "BD50102757"
+},
+{
+"union": "Gopalpur Paurashava",
+"upazila": "Gopalpur",
+"district": "Tangail",
+"lat": 24.55409,
+"lon": 89.93161,
+"pcode": "BD30933899"
+},
+{
+"union": "Gosainbari",
+"upazila": "Dhunat",
+"district": "Bogra",
+"lat": 24.72399,
+"lon": 89.59872,
+"pcode": "BD50102766"
+},
+{
+"union": "Gosaipur",
+"upazila": "Sreebardi",
+"district": "Sherpur",
+"lat": 25.14065,
+"lon": 89.97747,
+"pcode": "BD45899039"
+},
+{
+"union": "Gunaritala",
+"upazila": "Madarganj",
+"district": "Jamalpur",
+"lat": 24.90466,
+"lon": 89.75761,
+"pcode": "BD45395847"
+},
+{
+"union": "Habibulla Nagar",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.17687,
+"lon": 89.62132,
+"pcode": "BD50886787"
+},
+{
+"union": "Hadira",
+"upazila": "Gopalpur",
+"district": "Tangail",
+"lat": 24.6308,
+"lon": 89.92593,
+"pcode": "BD30933858"
+},
+{
+"union": "Haldia",
+"upazila": "Saghatta",
+"district": "Gaibandha",
+"lat": 25.07599,
+"lon": 89.61607,
+"pcode": "BD55328838"
+},
+{
+"union": "Harinathpur",
+"upazila": "Palashbari",
+"district": "Gaibandha",
+"lat": 25.21928,
+"lon": 89.50746,
+"pcode": "BD55326728"
+},
+{
+"union": "Harirampur",
+"upazila": "Gobindaganj",
+"district": "Gaibandha",
+"lat": 25.19113,
+"lon": 89.47399,
+"pcode": "BD55323022"
+},
+{
+"union": "Hat Sherpur",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 24.94247,
+"lon": 89.57011,
+"pcode": "BD50108137"
+},
+{
+"union": "Hatikumrul",
+"upazila": "Ullah Para",
+"district": "Sirajganj",
+"lat": 24.40496,
+"lon": 89.55458,
+"pcode": "BD50889436"
+},
+{
+"union": "Haturia Nakalia",
+"upazila": "Bera",
+"district": "Pabna",
+"lat": 24.03691,
+"lon": 89.65322,
+"pcode": "BD50761631"
+},
+{
+"union": "Hemnagar",
+"upazila": "Gopalpur",
+"district": "Tangail",
+"lat": 24.55302,
+"lon": 89.85512,
+"pcode": "BD30933865"
+},
+{
+"union": "Hugra",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.26711,
+"lon": 89.8167,
+"pcode": "BD30939553"
+},
+{
+"union": "Islampur",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.04987,
+"lon": 89.7629,
+"pcode": "BD45392955"
+},
+{
+"union": "Islampur Paurashava",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.09044,
+"lon": 89.78211,
+"pcode": "BD45392999"
+},
+{
+"union": "Jalalpur",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.19281,
+"lon": 89.69762,
+"pcode": "BD50886729"
+},
+{
+"union": "Jamalpur Paurashava",
+"upazila": "Jamalpur Sadar",
+"district": "Jamalpur",
+"lat": 24.91672,
+"lon": 89.93667,
+"pcode": "BD45393699"
+},
+{
+"union": "Jamtail",
+"upazila": "Kamarkhanda",
+"district": "Sirajganj",
+"lat": 24.36504,
+"lon": 89.65506,
+"pcode": "BD50884438"
+},
+{
+"union": "Jamuria",
+"upazila": "Ghatail",
+"district": "Tangail",
+"lat": 24.46652,
+"lon": 89.96035,
+"pcode": "BD30932869"
+},
+{
+"union": "Jhaugara",
+"upazila": "Melandaha",
+"district": "Jamalpur",
+"lat": 24.88291,
+"lon": 89.87845,
+"pcode": "BD45396157"
+},
+{
+"union": "Jhawail",
+"upazila": "Gopalpur",
+"district": "Tangail",
+"lat": 24.60351,
+"lon": 89.85551,
+"pcode": "BD30933873"
+},
+{
+"union": "Jhawail",
+"upazila": "Kamarkhanda",
+"district": "Sirajganj",
+"lat": 24.39982,
+"lon": 89.65904,
+"pcode": "BD50884457"
+},
+{
+"union": "Jiyanpur",
+"upazila": "Daulatpur",
+"district": "Manikganj",
+"lat": 23.9569,
+"lon": 89.79479,
+"pcode": "BD30561066"
+},
+{
+"union": "Jorekhali",
+"upazila": "Madarganj",
+"district": "Jamalpur",
+"lat": 24.83294,
+"lon": 89.7134,
+"pcode": "BD45395859"
+},
+{
+"union": "Jorgachha",
+"upazila": "Sonatola",
+"district": "Bogra",
+"lat": 24.96107,
+"lon": 89.50812,
+"pcode": "BD50109542"
+},
+{
+"union": "Jummerbari",
+"upazila": "Saghatta",
+"district": "Gaibandha",
+"lat": 25.06737,
+"lon": 89.56469,
+"pcode": "BD55328847"
+},
+{
+"union": "Kachua",
+"upazila": "Saghatta",
+"district": "Gaibandha",
+"lat": 25.12497,
+"lon": 89.51651,
+"pcode": "BD55328857"
+},
+{
+"union": "Kaijuri",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.14896,
+"lon": 89.68238,
+"pcode": "BD50886736"
+},
+{
+"union": "Kakilakura",
+"upazila": "Sreebardi",
+"district": "Sherpur",
+"lat": 25.20816,
+"lon": 89.91293,
+"pcode": "BD45899047"
+},
+{
+"union": "Kakua",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.32298,
+"lon": 89.804,
+"pcode": "BD30939571"
+},
+{
+"union": "Kaler Para",
+"upazila": "Dhunat",
+"district": "Bogra",
+"lat": 24.72687,
+"lon": 89.52662,
+"pcode": "BD50102776"
+},
+{
+"union": "Kalia",
+"upazila": "Daulatpur",
+"district": "Manikganj",
+"lat": 23.96822,
+"lon": 89.89109,
+"pcode": "BD30561076"
+},
+{
+"union": "Kalia Haripur",
+"upazila": "Sirajganj Sadar",
+"district": "Sirajganj",
+"lat": 24.43038,
+"lon": 89.71393,
+"pcode": "BD50887825"
+},
+{
+"union": "Kamaler Para",
+"upazila": "Saghatta",
+"district": "Gaibandha",
+"lat": 25.07785,
+"lon": 89.52461,
+"pcode": "BD55328866"
+},
+{
+"union": "Kamalpur",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 24.77175,
+"lon": 89.60255,
+"pcode": "BD50108144"
+},
+{
+"union": "Kamarer Char",
+"upazila": "Sherpur Sadar",
+"district": "Sherpur",
+"lat": 25.02293,
+"lon": 89.90581,
+"pcode": "BD45898861"
+},
+{
+"union": "Kamrabad",
+"upazila": "Sarishabari",
+"district": "Jamalpur",
+"lat": 24.78188,
+"lon": 89.82701,
+"pcode": "BD45398542"
+},
+{
+"union": "Kaoakola",
+"upazila": "Sirajganj Sadar",
+"district": "Sirajganj",
+"lat": 24.49624,
+"lon": 89.72861,
+"pcode": "BD50887834"
+},
+{
+"union": "Karaichara",
+"upazila": "Madarganj",
+"district": "Jamalpur",
+"lat": 24.94128,
+"lon": 89.76988,
+"pcode": "BD45395871"
+},
+{
+"union": "Karanja",
+"upazila": "Santhia",
+"district": "Pabna",
+"lat": 24.05102,
+"lon": 89.59532,
+"pcode": "BD50767251"
+},
+{
+"union": "Karatia",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.22015,
+"lon": 89.96693,
+"pcode": "BD30939559"
+},
+{
+"union": "Karnibari",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 24.85415,
+"lon": 89.63213,
+"pcode": "BD50108156"
+},
+{
+"union": "Kashinathpur",
+"upazila": "Santhia",
+"district": "Pabna",
+"lat": 23.98692,
+"lon": 89.58743,
+"pcode": "BD50767260"
+},
+{
+"union": "Katuli",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.20202,
+"lon": 89.82365,
+"pcode": "BD30939565"
+},
+{
+"union": "Kayempur",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.20893,
+"lon": 89.54345,
+"pcode": "BD50886743"
+},
+{
+"union": "Kazipur",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.65057,
+"lon": 89.66325,
+"pcode": "BD50885034"
+},
+{
+"union": "Kazipur Paurashava",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.63905,
+"lon": 89.64145,
+"pcode": "BD50885099"
+},
+{
+"union": "Kazla",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 24.92376,
+"lon": 89.63307,
+"pcode": "BD50108155"
+},
+{
+"union": "Kendua",
+"upazila": "Jamalpur Sadar",
+"district": "Jamalpur",
+"lat": 24.87089,
+"lon": 89.91985,
+"pcode": "BD45393635"
+},
+{
+"union": "Khamarkandi",
+"upazila": "Sherpur",
+"district": "Bogra",
+"lat": 24.6938,
+"lon": 89.46709,
+"pcode": "BD50108838"
+},
+{
+"union": "Khanpur",
+"upazila": "Sherpur",
+"district": "Bogra",
+"lat": 24.65801,
+"lon": 89.46486,
+"pcode": "BD50108847"
+},
+{
+"union": "Kharia Kazir Char",
+"upazila": "Sreebardi",
+"district": "Sherpur",
+"lat": 25.08591,
+"lon": 89.9734,
+"pcode": "BD45899055"
+},
+{
+"union": "Khas Kaulia",
+"upazila": "Chauhali",
+"district": "Sirajganj",
+"lat": 24.12793,
+"lon": 89.79565,
+"pcode": "BD50882727"
+},
+{
+"union": "Khas Pukuria",
+"upazila": "Chauhali",
+"district": "Sirajganj",
+"lat": 24.0928,
+"lon": 89.78741,
+"pcode": "BD50882731"
+},
+{
+"union": "Khas Rajbari",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.74274,
+"lon": 89.6837,
+"pcode": "BD50885043"
+},
+{
+"union": "Khatu Para",
+"upazila": "Santhia",
+"district": "Pabna",
+"lat": 23.99818,
+"lon": 89.49434,
+"pcode": "BD50767269"
+},
+{
+"union": "Khoksabari",
+"upazila": "Sirajganj Sadar",
+"district": "Sirajganj",
+"lat": 24.49152,
+"lon": 89.67827,
+"pcode": "BD50887843"
+},
+{
+"union": "Khukni",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.21319,
+"lon": 89.6874,
+"pcode": "BD50886751"
+},
+{
+"union": "Kulia",
+"upazila": "Melandaha",
+"district": "Jamalpur",
+"lat": 25.02274,
+"lon": 89.80497,
+"pcode": "BD45396166"
+},
+{
+"union": "Kulkandi",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.13427,
+"lon": 89.70352,
+"pcode": "BD45392963"
+},
+{
+"union": "Kutubpur",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 24.83107,
+"lon": 89.58088,
+"pcode": "BD50108163"
+},
+{
+"union": "Kytola",
+"upazila": "Bera",
+"district": "Pabna",
+"lat": 24.0115,
+"lon": 89.65697,
+"pcode": "BD50761647"
+},
+{
+"union": "Lakher Para",
+"upazila": "Ghatail",
+"district": "Tangail",
+"lat": 24.45696,
+"lon": 89.89866,
+"pcode": "BD30932877"
+},
+{
+"union": "Lauhati",
+"upazila": "Delduar",
+"district": "Tangail",
+"lat": 24.08082,
+"lon": 89.9425,
+"pcode": "BD30932365"
+},
+{
+"union": "Madarganj Paurashava",
+"upazila": "Madarganj",
+"district": "Jamalpur",
+"lat": 24.90368,
+"lon": 89.70925,
+"pcode": "BD45395899"
+},
+{
+"union": "Madhupur",
+"upazila": "Sonatola",
+"district": "Bogra",
+"lat": 25.0197,
+"lon": 89.53771,
+"pcode": "BD50109552"
+},
+{
+"union": "Magra",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.32975,
+"lon": 89.85833,
+"pcode": "BD30939577"
+},
+{
+"union": "Mahadan",
+"upazila": "Sarishabari",
+"district": "Jamalpur",
+"lat": 24.76237,
+"lon": 89.89797,
+"pcode": "BD45398552"
+},
+{
+"union": "Mahamudnagar",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.17594,
+"lon": 89.82126,
+"pcode": "BD30939580"
+},
+{
+"union": "Mahimaganj",
+"upazila": "Gobindaganj",
+"district": "Gaibandha",
+"lat": 25.11636,
+"lon": 89.48382,
+"pcode": "BD55323050"
+},
+{
+"union": "Mahishaban",
+"upazila": "Gabtali",
+"district": "Bogra",
+"lat": 24.82459,
+"lon": 89.4655,
+"pcode": "BD50104054"
+},
+{
+"union": "Mahmudpur",
+"upazila": "Melandaha",
+"district": "Jamalpur",
+"lat": 24.98955,
+"lon": 89.74639,
+"pcode": "BD45396176"
+},
+{
+"union": "Maijbari",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.6928,
+"lon": 89.6463,
+"pcode": "BD50885051"
+},
+{
+"union": "Mamudnagar",
+"upazila": "Nagarpur",
+"district": "Tangail",
+"lat": 24.03775,
+"lon": 89.91011,
+"pcode": "BD30937658"
+},
+{
+"union": "Mansur Nagar",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.74867,
+"lon": 89.74487,
+"pcode": "BD50885056"
+},
+{
+"union": "Mathurapur",
+"upazila": "Dhunat",
+"district": "Bogra",
+"lat": 24.57794,
+"lon": 89.55144,
+"pcode": "BD50102785"
+},
+{
+"union": "Mechhra",
+"upazila": "Sirajganj Sadar",
+"district": "Sirajganj",
+"lat": 24.56222,
+"lon": 89.72922,
+"pcode": "BD50887851"
+},
+{
+"union": "Melandaha Paurashava",
+"upazila": "Melandaha",
+"district": "Jamalpur",
+"lat": 24.97831,
+"lon": 89.84192,
+"pcode": "BD45396199"
+},
+{
+"union": "Merur Char",
+"upazila": "Bakshiganj",
+"district": "Jamalpur",
+"lat": 25.16198,
+"lon": 89.82187,
+"pcode": "BD45390759"
+},
+{
+"union": "Meshta",
+"upazila": "Jamalpur Sadar",
+"district": "Jamalpur",
+"lat": 24.8392,
+"lon": 89.86758,
+"pcode": "BD45393647"
+},
+{
+"union": "Mirzapur",
+"upazila": "Gopalpur",
+"district": "Tangail",
+"lat": 24.50658,
+"lon": 89.91753,
+"pcode": "BD30933880"
+},
+{
+"union": "Mohanpur",
+"upazila": "Ullah Para",
+"district": "Sirajganj",
+"lat": 24.24012,
+"lon": 89.49007,
+"pcode": "BD50889443"
+},
+{
+"union": "Mokhna",
+"upazila": "Nagarpur",
+"district": "Tangail",
+"lat": 24.04358,
+"lon": 89.95108,
+"pcode": "BD30937665"
+},
+{
+"union": "Muktanagar",
+"upazila": "Saghatta",
+"district": "Gaibandha",
+"lat": 25.1578,
+"lon": 89.56442,
+"pcode": "BD55328895"
+},
+{
+"union": "Musuddi",
+"upazila": "Dhanbari",
+"district": "Tangail",
+"lat": 24.66697,
+"lon": 89.88874,
+"pcode": "BD30932580"
+},
+{
+"union": "Nagarpur",
+"upazila": "Nagarpur",
+"district": "Tangail",
+"lat": 24.03681,
+"lon": 89.87858,
+"pcode": "BD30937673"
+},
+{
+"union": "Nagda Simla",
+"upazila": "Gopalpur",
+"district": "Tangail",
+"lat": 24.59508,
+"lon": 89.90714,
+"pcode": "BD30933894"
+},
+{
+"union": "Nagdemra",
+"upazila": "Santhia",
+"district": "Pabna",
+"lat": 24.11417,
+"lon": 89.53607,
+"pcode": "BD50767277"
+},
+{
+"union": "Nalka",
+"upazila": "Royganj",
+"district": "Sirajganj",
+"lat": 24.44529,
+"lon": 89.56198,
+"pcode": "BD50886166"
+},
+{
+"union": "Nandanpur",
+"upazila": "Santhia",
+"district": "Pabna",
+"lat": 24.04113,
+"lon": 89.47849,
+"pcode": "BD50767286"
+},
+{
+"union": "Nangla",
+"upazila": "Melandaha",
+"district": "Jamalpur",
+"lat": 24.97678,
+"lon": 89.80628,
+"pcode": "BD45396185"
+},
+{
+"union": "Narandia",
+"upazila": "Kalihati",
+"district": "Tangail",
+"lat": 24.39834,
+"lon": 89.91282,
+"pcode": "BD30934773"
+},
+{
+"union": "Narchi",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 24.91262,
+"lon": 89.5428,
+"pcode": "BD50108175"
+},
+{
+"union": "Narnia",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.21397,
+"lon": 89.59898,
+"pcode": "BD50886758"
+},
+{
+"union": "Naruamala",
+"upazila": "Gabtali",
+"district": "Bogra",
+"lat": 24.89855,
+"lon": 89.45343,
+"pcode": "BD50104061"
+},
+{
+"union": "Nasipur",
+"upazila": "Gabtali",
+"district": "Bogra",
+"lat": 24.78136,
+"lon": 89.47443,
+"pcode": "BD50104067"
+},
+{
+"union": "Natuar Para",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.67941,
+"lon": 89.69879,
+"pcode": "BD50885060"
+},
+{
+"union": "Nayanagar",
+"upazila": "Melandaha",
+"district": "Jamalpur",
+"lat": 24.96416,
+"lon": 89.8704,
+"pcode": "BD45396195"
+},
+{
+"union": "Nepaltali",
+"upazila": "Gabtali",
+"district": "Bogra",
+"lat": 24.9026,
+"lon": 89.50131,
+"pcode": "BD50104074"
+},
+{
+"union": "Nikrail",
+"upazila": "Bhuapur",
+"district": "Tangail",
+"lat": 24.4255,
+"lon": 89.79011,
+"pcode": "BD30931981"
+},
+{
+"union": "Nilakshmia",
+"upazila": "Bakshiganj",
+"district": "Jamalpur",
+"lat": 25.13563,
+"lon": 89.8834,
+"pcode": "BD45390771"
+},
+{
+"union": "Nimgachhi",
+"upazila": "Dhunat",
+"district": "Bogra",
+"lat": 24.76229,
+"lon": 89.51992,
+"pcode": "BD50102795"
+},
+{
+"union": "Nishchintapur",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.63532,
+"lon": 89.76592,
+"pcode": "BD50885069"
+},
+{
+"union": "Noarpara",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.01214,
+"lon": 89.72378,
+"pcode": "BD45392971"
+},
+{
+"union": "Nutan Bharenga",
+"upazila": "Bera",
+"district": "Pabna",
+"lat": 23.99012,
+"lon": 89.66789,
+"pcode": "BD50761663"
+},
+{
+"union": "Omarpur",
+"upazila": "Chauhali",
+"district": "Sirajganj",
+"lat": 24.05493,
+"lon": 89.72443,
+"pcode": "BD50882737"
+},
+{
+"union": "Padumsahar",
+"upazila": "Saghatta",
+"district": "Gaibandha",
+"lat": 25.20376,
+"lon": 89.54081,
+"pcode": "BD55328876"
+},
+{
+"union": "Paiska",
+"upazila": "Dhanbari",
+"district": "Tangail",
+"lat": 24.67718,
+"lon": 89.91697,
+"pcode": "BD30932585"
+},
+{
+"union": "Pakulla",
+"upazila": "Sonatola",
+"district": "Bogra",
+"lat": 24.97399,
+"lon": 89.56168,
+"pcode": "BD50109581"
+},
+{
+"union": "Palbandha",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.1048,
+"lon": 89.79741,
+"pcode": "BD45392979"
+},
+{
+"union": "Pancha Krushi",
+"upazila": "Ullah Para",
+"district": "Sirajganj",
+"lat": 24.32562,
+"lon": 89.60009,
+"pcode": "BD50889451"
+},
+{
+"union": "Pangashi",
+"upazila": "Royganj",
+"district": "Sirajganj",
+"lat": 24.47205,
+"lon": 89.59191,
+"pcode": "BD50886176"
+},
+{
+"union": "Patharsi",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.10917,
+"lon": 89.74896,
+"pcode": "BD45392987"
+},
+{
+"union": "Pathrail",
+"upazila": "Delduar",
+"district": "Tangail",
+"lat": 24.19972,
+"lon": 89.92403,
+"pcode": "BD30932371"
+},
+{
+"union": "Pingna",
+"upazila": "Sarishabari",
+"district": "Jamalpur",
+"lat": 24.60235,
+"lon": 89.80259,
+"pcode": "BD45398563"
+},
+{
+"union": "Pogaldigha",
+"upazila": "Sarishabari",
+"district": "Jamalpur",
+"lat": 24.69973,
+"lon": 89.81316,
+"pcode": "BD45398573"
+},
+{
+"union": "Porabari",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.21001,
+"lon": 89.86707,
+"pcode": "BD30939590"
+},
+{
+"union": "Porjana",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.1476,
+"lon": 89.64087,
+"pcode": "BD50886765"
+},
+{
+"union": "Potajia",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.14991,
+"lon": 89.56288,
+"pcode": "BD50886773"
+},
+{
+"union": "Pungali",
+"upazila": "Faridpur",
+"district": "Pabna",
+"lat": 24.17829,
+"lon": 89.49168,
+"pcode": "BD50763384"
+},
+{
+"union": "Purnimaganti",
+"upazila": "Ullah Para",
+"district": "Sirajganj",
+"lat": 24.32031,
+"lon": 89.51244,
+"pcode": "BD50889458"
+},
+{
+"union": "Rajapur",
+"upazila": "Belkuchi",
+"district": "Sirajganj",
+"lat": 24.33965,
+"lon": 89.71567,
+"pcode": "BD50881181"
+},
+{
+"union": "Rani Shimul",
+"upazila": "Sreebardi",
+"district": "Sherpur",
+"lat": 25.23151,
+"lon": 89.95795,
+"pcode": "BD45899071"
+},
+{
+"union": "Ratankandi",
+"upazila": "Sirajganj Sadar",
+"district": "Sirajganj",
+"lat": 24.57391,
+"lon": 89.63537,
+"pcode": "BD50887860"
+},
+{
+"union": "Roy Daulatpur",
+"upazila": "Kamarkhanda",
+"district": "Sirajganj",
+"lat": 24.32702,
+"lon": 89.64143,
+"pcode": "BD50884476"
+},
+{
+"union": "Royganj Paurashava",
+"upazila": "Royganj",
+"district": "Sirajganj",
+"lat": 24.51617,
+"lon": 89.53308,
+"pcode": "BD50886199"
+},
+{
+"union": "Rupabati",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.11252,
+"lon": 89.60569,
+"pcode": "BD50886780"
+},
+{
+"union": "Sadhur Para",
+"upazila": "Bakshiganj",
+"district": "Jamalpur",
+"lat": 25.21319,
+"lon": 89.81283,
+"pcode": "BD45390783"
+},
+{
+"union": "Sadia Chandpur",
+"upazila": "Chauhali",
+"district": "Sirajganj",
+"lat": 24.24815,
+"lon": 89.74384,
+"pcode": "BD50882747"
+},
+{
+"union": "Sahabajpur",
+"upazila": "Jamalpur Sadar",
+"district": "Jamalpur",
+"lat": 24.82965,
+"lon": 89.97559,
+"pcode": "BD45393671"
+},
+{
+"union": "Sahabatpur",
+"upazila": "Nagarpur",
+"district": "Tangail",
+"lat": 24.09047,
+"lon": 89.88162,
+"pcode": "BD30937687"
+},
+{
+"union": "Sahadebpur",
+"upazila": "Kalihati",
+"district": "Tangail",
+"lat": 24.32553,
+"lon": 89.95418,
+"pcode": "BD30934794"
+},
+{
+"union": "Saidabad",
+"upazila": "Sirajganj Sadar",
+"district": "Sirajganj",
+"lat": 24.381,
+"lon": 89.72471,
+"pcode": "BD50887869"
+},
+{
+"union": "Salanga",
+"upazila": "Ullah Para",
+"district": "Sirajganj",
+"lat": 24.39392,
+"lon": 89.49955,
+"pcode": "BD50889473"
+},
+{
+"union": "Salap",
+"upazila": "Ullah Para",
+"district": "Sirajganj",
+"lat": 24.26912,
+"lon": 89.60199,
+"pcode": "BD50889480"
+},
+{
+"union": "Salimabad",
+"upazila": "Nagarpur",
+"district": "Tangail",
+"lat": 24.04205,
+"lon": 89.81252,
+"pcode": "BD30937694"
+},
+{
+"union": "Salla",
+"upazila": "Kalihati",
+"district": "Tangail",
+"lat": 24.38045,
+"lon": 89.87797,
+"pcode": "BD30934787"
+},
+{
+"union": "Santhia Paurashava",
+"upazila": "Santhia",
+"district": "Pabna",
+"lat": 24.05145,
+"lon": 89.56414,
+"pcode": "BD50767299"
+},
+{
+"union": "Sapdhari",
+"upazila": "Islampur",
+"district": "Jamalpur",
+"lat": 25.05073,
+"lon": 89.69081,
+"pcode": "BD45392994"
+},
+{
+"union": "Sariakandi",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 24.894,
+"lon": 89.59514,
+"pcode": "BD50108188"
+},
+{
+"union": "Sariakandi Paurashava",
+"upazila": "Sariakandi",
+"district": "Bogra",
+"lat": 24.89265,
+"lon": 89.56984,
+"pcode": "BD50108199"
+},
+{
+"union": "Sarishabari Paurashava",
+"upazila": "Sarishabari",
+"district": "Jamalpur",
+"lat": 24.74811,
+"lon": 89.8321,
+"pcode": "BD45398599"
+},
+{
+"union": "Satpoa",
+"upazila": "Sarishabari",
+"district": "Jamalpur",
+"lat": 24.76892,
+"lon": 89.78995,
+"pcode": "BD45398584"
+},
+{
+"union": "Shahjadpur Paurashava",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.17255,
+"lon": 89.58798,
+"pcode": "BD50886799"
+},
+{
+"union": "Shalmara",
+"upazila": "Gobindaganj",
+"district": "Gaibandha",
+"lat": 25.06977,
+"lon": 89.48207,
+"pcode": "BD55323072"
+},
+{
+"union": "Shaympur",
+"upazila": "Melandaha",
+"district": "Jamalpur",
+"lat": 25.00903,
+"lon": 89.85504,
+"pcode": "BD45396197"
+},
+{
+"union": "Shialkul",
+"upazila": "Sirajganj Sadar",
+"district": "Sirajganj",
+"lat": 24.4376,
+"lon": 89.65635,
+"pcode": "BD50887877"
+},
+{
+"union": "Shimabari",
+"upazila": "Sherpur",
+"district": "Bogra",
+"lat": 24.56354,
+"lon": 89.50057,
+"pcode": "BD50108885"
+},
+{
+"union": "Sidhuli",
+"upazila": "Madarganj",
+"district": "Jamalpur",
+"lat": 24.81847,
+"lon": 89.81202,
+"pcode": "BD45395883"
+},
+{
+"union": "Silimpur",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.18438,
+"lon": 89.87332,
+"pcode": "BD30939583"
+},
+{
+"union": "Sirajganj Paurashava",
+"upazila": "Sirajganj Sadar",
+"district": "Sirajganj",
+"lat": 24.45865,
+"lon": 89.70854,
+"pcode": "BD50887899"
+},
+{
+"union": "Sonamukhi",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.67108,
+"lon": 89.57049,
+"pcode": "BD50885077"
+},
+{
+"union": "Sonatala",
+"upazila": "Sonatola",
+"district": "Bogra",
+"lat": 25.02087,
+"lon": 89.50488,
+"pcode": "BD50109573"
+},
+{
+"union": "Sonatani",
+"upazila": "Shahjadpur",
+"district": "Sirajganj",
+"lat": 24.11937,
+"lon": 89.71551,
+"pcode": "BD50886794"
+},
+{
+"union": "Sonatola Paurashava",
+"upazila": "Sonatola",
+"district": "Bogra",
+"lat": 25.03988,
+"lon": 89.49389,
+"pcode": "BD50109599"
+},
+{
+"union": "Sreebardi",
+"upazila": "Sreebardi",
+"district": "Sherpur",
+"lat": 25.13352,
+"lon": 89.91378,
+"pcode": "BD45899086"
+},
+{
+"union": "Sreebardi Paurashava",
+"upazila": "Sreebardi",
+"district": "Sherpur",
+"lat": 25.14466,
+"lon": 89.9322,
+"pcode": "BD45899099"
+},
+{
+"union": "Sthal",
+"upazila": "Chauhali",
+"district": "Sirajganj",
+"lat": 24.19188,
+"lon": 89.7551,
+"pcode": "BD50882771"
+},
+{
+"union": "Subhagachha",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.58288,
+"lon": 89.67526,
+"pcode": "BD50885086"
+},
+{
+"union": "Sughat",
+"upazila": "Sherpur",
+"district": "Bogra",
+"lat": 24.60789,
+"lon": 89.48178,
+"pcode": "BD50108895"
+},
+{
+"union": "Sughatta",
+"upazila": "Saghatta",
+"district": "Gaibandha",
+"lat": 25.14383,
+"lon": 89.58907,
+"pcode": "BD55328885"
+},
+{
+"union": "Tangail Paurashava",
+"upazila": "Tangail Sadar",
+"district": "Tangail",
+"lat": 24.24483,
+"lon": 89.90242,
+"pcode": "BD30939599"
+},
+{
+"union": "Tantihati",
+"upazila": "Sreebardi",
+"district": "Sherpur",
+"lat": 25.17174,
+"lon": 89.94337,
+"pcode": "BD45899094"
+},
+{
+"union": "Tekani",
+"upazila": "Kazipur",
+"district": "Sirajganj",
+"lat": 24.61842,
+"lon": 89.73463,
+"pcode": "BD50885094"
+},
+{
+"union": "Tekani Chukainagar",
+"upazila": "Sonatola",
+"district": "Bogra",
+"lat": 25.01466,
+"lon": 89.56663,
+"pcode": "BD50109584"
+},
+{
+"union": "Titpalla",
+"upazila": "Jamalpur Sadar",
+"district": "Jamalpur",
+"lat": 24.81724,
+"lon": 89.91545,
+"pcode": "BD45393689"
+},
+{
+"union": "Ullah Para",
+"upazila": "Ullah Para",
+"district": "Sirajganj",
+"lat": 24.31255,
+"lon": 89.5512,
+"pcode": "BD50889494"
+},
+{
+"union": "Ullah Para Paurashava",
+"upazila": "Ullah Para",
+"district": "Sirajganj",
+"lat": 24.30905,
+"lon": 89.56925,
+"pcode": "BD50889499"
+}
+]
+}
