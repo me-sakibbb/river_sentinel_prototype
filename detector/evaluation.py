@@ -143,8 +143,11 @@ def tier_scores(flag, t, sel):
     for dr in (-1, 0, 1):
         for dc in (-1, 0, 1):
             near |= np.isin(_keys(fr, fyr, frow + dr, fcol + dc), eroded)
+    precision = tp / max(tp + fp, 1)
     return {"flagged_cells": int(f.sum()), "flagged_share": round(float(f.mean()), 4),
-            "precision": round(tp / max(tp + fp, 1), 3),
+            "precision": round(precision, 3),
+            # How many times more likely a flagged cell is to erode than an average scored cell.
+            "lift": round(precision / y.mean(), 1) if y.any() else None,
             "precision_within_240m": round(float(near.mean()), 3) if f.any() else None,
             "recall_cells": round(tp / max(tp + fn, 1), 3),
             "land_caught": round(float(loss[f].sum() / loss.sum()), 3) if loss.sum() > 0 else None,
@@ -160,6 +163,20 @@ def tiers_of(p, thr):
 def tier_block(p, t, sel, thr):
     tier = tiers_of(p, thr)
     return {"high": tier_scores(tier == 2, t, sel), "high_or_watch": tier_scores(tier >= 1, t, sel)}
+
+
+def precision_vs_coverage(p, t, sel, shares=(0.005, 0.01, 0.02, 0.05, 0.10, 0.20)):
+    """The trade-off a shorter or longer list buys: for the riskiest `share`
+    of bank, the precision and the share of lost land caught. Descriptive
+    only; the alert tiers stay the ones fixed on the validation years."""
+    y, loss, s = t["label"][sel], t["loss_ha"][sel], p[sel]
+    order = np.argsort(-s, kind="stable")
+    rows = []
+    for share in shares:
+        k = max(1, int(round(share * len(s))))
+        rows.append({"share": share, "precision": round(float(y[order[:k]].mean()), 3),
+                     "land_caught": round(float(loss[order[:k]].sum() / loss.sum()), 3)})
+    return rows
 
 
 def reliability(p, y, edges=(0, .02, .05, .1, .2, .3, .5, .7, 1.0001)):
@@ -325,6 +342,7 @@ def run(t, site_cells=None, log=print):
     report["calibration"] = {"brier_raw": round(float(brier_score_loss(y_test, p_raw[test])), 4),
                              "brier_calibrated": round(float(brier_score_loss(y_test, p_cal[test])), 4),
                              "reliability_test": reliability(p_cal[test], y_test)}
+    report["precision_vs_coverage"] = precision_vs_coverage(p_raw, t, test)
 
     # 5. Honesty checks.
     rng = np.random.default_rng(SEED)

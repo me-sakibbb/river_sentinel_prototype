@@ -330,11 +330,13 @@
         <h3>How far to trust it</h3>
         <p class="fine">Scored on the ${testSpan()} monsoons, which the model never saw during training.</p>
         ${figures([
-          [pct(all.high.precision), "", "of High-alert stretches really lost land"],
+          [`${all.high.lift}×`, "", "as likely to erode as an average stretch, if on High alert"],
+          [pct(all.high.precision_within_240m), "", "of High alerts: that stretch or the next one lost a hectare"],
           [pct(all.high_or_watch.land_caught), "", "of all land lost was on the High or Watch list"],
-          [pct(all.high_or_watch.flagged_share), "", "of the bank is on those two lists"],
         ])}
-        <p class="fine">So most High alerts are worth a field check, but about half will not erode. <a href="#record">See the track record</a></p>
+        <p class="fine">In a given year only ${pct(REP.ranking.all_rivers.ai.base_rate, 1)} of riverside stretches lose a hectare.
+          On High alert it is ${pct(all.high.precision)}, counting the stretch's own 240 m square only. Every High alert is worth a
+          field check, but not every one will erode. <a href="#record">See the track record</a></p>
       </div>
 
       <div class="stack">
@@ -458,7 +460,9 @@
         <p class="body">Share of all land lost that was inside the <b>riskiest 20% of the bank</b>, across ${fmt(rk.ai.cells)} stretch-years on the Jamuna and Ganges–Padma.</p>
         ${bars}
         <p class="fine">Ranking score (AUC, 1 is perfect, 0.5 is a coin toss): AI ${rk.ai.auc}, first version ${rk.ai_version1.auc},
-          rules ${rk.eroded_last_year.auc} and ${rk.closest_to_river.auc}.${sitesRk ? ` Kazipur and Chauhali alone: AI ${sitesRk.ai.auc}, and the riskiest 20% held ${pct(sitesRk.ai.capture_top20)} of land lost.` : ""}</p>
+          rules ${rk.eroded_last_year.auc} and ${rk.closest_to_river.auc}. We quote the first version's
+          ${pct(rk.ai_version1.capture_top20)}: its inputs date from before the test years were looked at, and the newer inputs add
+          too little to claim.${sitesRk ? ` Kazipur and Chauhali alone: AI ${sitesRk.ai.auc}, and the riskiest 20% held ${pct(sitesRk.ai.capture_top20)} of land lost.` : ""}</p>
       </div>
 
       ${ev.length ? `<div class="block">
@@ -482,6 +486,7 @@
           <th class="n">Or next door</th><th class="n">Land caught</th></tr></thead>
           ${row("High alert", tiers.high, true)}${row("High + Watch", tiers.high_or_watch)}</table></div>
         <p class="fine"><b>Eroded</b>: the stretch itself lost ${fmt(REP.protocol.min_loss_ha)} ha or more. <b>Or next door</b>: it or a touching stretch did.
+          An average stretch erodes ${pct(rk.ai.base_rate, 1)} of the time, so a High alert is ${tiers.high.lift}× as likely to be right as a guess.
           High alert averages ${fmt(tiers.high.false_alarms_per_year)} false alarms a year across the ${Object.keys(REP.protocol.reaches).length} river reaches.
           ${sites ? `In Kazipur and Chauhali, ${pct(sites.high.precision)} of High alerts were right.` : ""}
           ${REP.thresholds.target_met_on_validation ? "" : "<b>The 50% target could not be reached on the validation years, so the most precise tier is used.</b>"}
@@ -491,7 +496,13 @@
       </div>
 
       <div class="stack">
-        ${det("Year by year", `<p class="fine">Ranking score (AUC) for each test monsoon, all rivers. The AI is ahead of both rules every year.</p>
+        ${(REP.precision_vs_coverage || []).length ? det("Shorter list, fewer false alarms", `<p class="fine">A shorter list is right more
+          often but catches less of the land lost. Test years, all rivers. This shows the trade-off; the High alert cut-off itself was
+          fixed on the validation years.</p>
+          <div class="scroll-x"><table class="t"><thead><tr><th>Riskiest share of bank</th><th class="n">Eroded</th><th class="n">Land caught</th></tr></thead>
+          ${REP.precision_vs_coverage.map((r) => `<tr><td>${pct(r.share, r.share < 0.01 ? 1 : 0)}</td><td class="n">${pct(r.precision)}</td>
+            <td class="n">${pct(r.land_caught)}</td></tr>`).join("")}</table></div>`) : ""}
+        ${det("Year by year",`<p class="fine">Ranking score (AUC) for each test monsoon, all rivers. The AI is ahead of both rules every year.</p>
           ${lineChart(series, { ymin: lo, ymax: 1, ticks: [lo, (lo + 1) / 2, 1].map((v) => Math.round(v * 100) / 100), yFmt: (v) => v.toFixed(2) })}`)}
         ${det("Can the percentages be taken at face value?", `<p class="fine">Each dot is a group of stretches with similar forecast risk.
           Dots near the dashed line mean that when the forecast says 40%, about 40% of those stretches erode.</p>${calibChart(REP.calibration.reliability_test)}`)}

@@ -28,7 +28,7 @@ This prototype adds three things alongside it:
 | Method | Probabilistic, from dry-season images | Delft3D physics model with seasonal flow forecasts | Machine learning on 37 years of dry-season Landsat maps, plus radar every pass |
 | Cycle | Once a year | Seasonal (4-month lead time) | Yearly forecast, **updated every radar pass (about 12 days)** |
 | Unit | Erosion-prone zones | Model grid | **240 m bank cells**, each with its reasons |
-| Tested skill | Not published per cell | 70 % in 2023 field tests | AUC 0.911 on 5 unseen monsoons (0.898-0.935 per year); High-alert precision 45 %, stated with its false alarms (below) |
+| Tested skill | Not published per cell | 70 % in 2023 field tests | On 5 unseen monsoons, the riskiest 20 % of bank held 82 % of land lost (AUC 0.91); High alerts erode at 10× the average rate, with false alarms stated (below) |
 | Delivery | Report / posters | Research system | Bangla SMS/voice to people in the cell (**simulated**) |
 | Mining | Not covered | Not covered | Heuristic flag on pit-like shapes, **for human review** |
 
@@ -124,6 +124,12 @@ checks.
 | **AI forecast, Kazipur + Chauhali** | **0.879** | **57 %** | **75 %** |
 | *Version 1 as first published: Jamuna reach / Kazipur + Chauhali* | *0.904 / 0.871* | *61 % / 56 %* | *81 % / 74 %* |
 
+**The figure we quote: the riskiest 20 % of bank held 82 % of the land the
+rivers took.** That is the model with version 1's inputs, retrained on the
+same leak-free data. Its inputs date from before the version 2 review, so the
+hindsight caveat above doesn't apply to them. Version 2 scores 83 %; we don't
+claim the one-point gain.
+
 The AI beats both rules in every test year (AUC 0.898-0.935 vs 0.844-0.884 for
 the better rule). The gain over version 1's inputs on the same data is small
 (AUC +0.005). Most of what changed is that the numbers are now leak-free and
@@ -140,14 +146,25 @@ This supports the national, one-model design (see `MODEL_BLUEPRINT.md`).
 
 ### False alarms, stated plainly
 
-Only about 4.4 % of scored cells erode in a given year, so any forecast raises
-false alarms. Two alert tiers, with thresholds fixed on the validation years:
+Erosion is rare: in a given year only **4.4 %** of riverside cells lose a
+hectare. On High alert it is **45 %, 10 times the average rate**. Counting the touching cell too (a 240 m cell edge is
+arbitrary), **6 in 10** High alerts were right. Two alert tiers, with
+thresholds fixed on the validation years:
 
-| Test years, all reaches | Share of bank flagged | Flagged cells that eroded | …or a neighbouring cell did | Lost land caught | False alarms / year |
-|---|---|---|---|---|---|
-| **High alert** (risk ≥ 33 %) | 3.6 % | **45 %** | 60 % | 37 % | 805 (of 1,456 alerts) |
-| High alert + Watch (risk ≥ 6.4 %) | 21 % | 17 % | 32 % | **84 %** | 7,140 |
-| High alert, Kazipur + Chauhali | 5.0 % | 40 % | 52 % | 39 % | 107 (of 176) |
+| Test years, all reaches | Share of bank flagged | Flagged cells that eroded | × average rate | …or a neighbouring cell did | Lost land caught | False alarms / year |
+|---|---|---|---|---|---|---|
+| **High alert** (risk ≥ 33 %) | 3.6 % | **45 %** | **10×** | 60 % | 37 % | 805 (of 1,456 alerts) |
+| High alert + Watch (risk ≥ 6.4 %) | 21 % | 17 % | 4× | 32 % | **84 %** | 7,140 |
+| High alert, Kazipur + Chauhali | 5.0 % | 40 % | 8× | 52 % | 39 % | 107 (of 176) |
+
+**A shorter list is right more often, but catches less.** This is how the
+trade-off looked on the test years. It is descriptive only: the High-alert
+cut-off stays the one fixed on the validation years.
+
+| Riskiest share of bank | 0.5 % | 1 % | 2 % | 5 % | 10 % | 20 % |
+|---|---|---|---|---|---|---|
+| Flagged cells that eroded | 67 % | 61 % | 53 % | 40 % | 28 % | 18 % |
+| Lost land caught | 9 % | 15 % | 25 % | 45 % | 64 % | 83 % |
 
 - **The precision target was missed on the test years.** The High-alert
   threshold was set to reach 50 % precision on the validation years, and did
