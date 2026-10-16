@@ -550,4 +550,4 @@ examples than any one river offers. That is the reason to expect it to win. The 
   open-sourced framework: https://research.google/blog/the-next-chapter-in-flood-resilience-open-sourcing-googles-hydrology-framework/
 
 **This project**
-- Pilot results: `data/forecast/report.json` (forecast), `README.md` (radar detector)
+- Pilot results: `data/forecast/report.json` (forecast), `docs/TECHNICAL.md` (radar detector)
