@@ -17,31 +17,32 @@
     <header class="bar">
       <a class="name" href="#">Jamuna Bank Watch</a>
       <ol class="stepper" id="stepper" aria-label="Steps">
-        <li><button type="button" data-step="0"><span class="dot">1</span><span class="lab"><span id="year">2026</span> forecast</span></button></li>
-        <li><button type="button" data-step="1"><span class="dot">2</span><span class="lab">Past forecast</span></button></li>
-        <li><button type="button" data-step="2"><span class="dot">3</span><span class="lab">What happened</span></button></li>
+        <li><button type="button" data-step="0"><span class="dot">1</span><span class="lab">Past prediction</span></button></li>
+        <li><button type="button" data-step="1"><span class="dot">2</span><span class="lab">What happened</span></button></li>
+        <li><button type="button" data-step="2"><span class="dot">3</span><span class="lab"><span id="year">2026</span> risk map</span></button></li>
       </ol>
-      <a class="to-details" href="#details">Details ↓</a>
+      <a class="to-details" href="#details">Read more ↓</a>
     </header>
 
     <div class="viewport" id="viewport">
       <div class="track" id="track">
+        <article class="slide pa" id="slide-past" aria-label="A past prediction and what happened"></article>
+
         <article class="slide fc" id="slide-forecast" aria-label="This year's forecast">
           <div id="map" class="map"></div>
           <aside class="panel">
-            <p class="eyebrow rise" style="--i:0">Research prototype · no warnings are sent</p>
-            <h1 class="rise" style="--i:1">Where the river may strike in <span id="year-h">2026</span></h1>
+            <p class="eyebrow rise" style="--i:0">Test version. No warnings are sent yet.</p>
+            <h1 class="rise" style="--i:1">Where the river may take land in <span id="year-h">2026</span></h1>
             <p class="sub rise" id="fc-sub" style="--i:2"></p>
             <div class="seg rise" id="sites" role="group" aria-label="Upazila" style="--i:3"></div>
             <div class="stats rise" id="stats" style="--i:4"></div>
             <div class="rise" style="--i:5">
-              <h2 class="mini" id="h-list">Riskiest stretches</h2>
+              <h2 class="mini" id="h-list">Most at risk</h2>
+              <p class="hint">Tap a place to see it on the map</p>
               <ol class="list" id="list" aria-labelledby="h-list"></ol>
             </div>
           </aside>
         </article>
-
-        <article class="slide pa" id="slide-past" aria-label="A past forecast and what happened"></article>
       </div>
     </div>
 
@@ -51,10 +52,10 @@
   </section>
 
   <section class="wrap details" id="details" aria-labelledby="h-details">
-    <h2 id="h-details">Details</h2>
+    <h2 id="h-details">More about this</h2>
 
     <div class="row" id="score">
-      <h3>Track record</h3>
+      <h3>How well it works</h3>
       <div>
         <p id="score-line"></p>
         <div class="bars" id="bars"></div>
@@ -66,27 +67,23 @@
       <h3>How it works</h3>
       <ol class="steps">
         <li><b>Predict</b> <span class="when">March, before the rains</span>
-          <p>The AI studies the dry-season satellite picture: how close the channel is, whether it is moving in, and where land
-            was lost before. Each stretch of bank gets a risk score.</p></li>
+          <p>In March, the AI studies satellite images. It checks how close the river is, whether it is moving closer, and where land was lost before.</p></li>
         <li><b>Confirm</b> <span class="when">Every 12 days in the monsoon</span>
-          <p>Clouds hide the ground all monsoon, but radar sees through them. A second AI model checks where bank is actually
-            turning into river.</p></li>
+          <p>Clouds block normal images during the rains, but radar sees through them. A second AI checks where land is turning into river.</p></li>
         <li><b>Warn</b> <span class="when">When both agree</span>
-          <p>People living on a high-alert stretch would get a Bangla SMS or voice call, and local officials a map. In this prototype
-            nothing is sent.</p></li>
+          <p>People in High alert areas would get an SMS or voice call in Bangla. Local officials would get a map. This test version sends nothing.</p></li>
       </ol>
     </div>
 
     <div class="row">
       <h3>Limits</h3>
-      <p>This is a research prototype. Not every High alert erodes: use it to decide where to check first. The model can't see bank
-        protection such as geobags, so protected banks may be over-flagged.</p>
+      <p>This is a test version. Not every High alert place will lose land, so use it to decide where to check first. The AI cannot see protection work such as geobags, so protected places may be marked by mistake.</p>
     </div>
 
     <div class="row">
       <h3>Sources</h3>
       <p>Imagery: Copernicus Sentinel-1/2 (ESA), Landsat (USGS/NASA), via Google Earth Engine. Boundaries © OpenStreetMap contributors.
-        Basemap © Esri. <a href="https://github.com/me-sakibbb/river_sentinel_prototype">Code and full technical results</a></p>
+        The 2026 map shows a clear Sentinel-2 image of each upazila from January to March 2026, with Esri's map around it. <a href="https://github.com/me-sakibbb/river_sentinel_prototype">Code and full technical results</a></p>
     </div>
   </section>
 </main>

@@ -20,6 +20,19 @@
   const BANGLA = { kazipur: "কাজীপুর", chauhali: "চৌহালী" };
   const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
   const CALM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // The forecast data words its reasons technically; visitors see them in plain language.
+  const unit = (n, word) => `${n} ${word}${n === "1" ? "" : "s"}`;
+  const PLAIN = [
+    [/^bank nearby lost (\S+) ha last year$/i, (_, n) => `Nearby land lost last year: ${unit(n, "hectare")}`],
+    [/^erosion nearby in (\S+) of the last 5 years$/i, (_, n) => `Land lost nearby in ${n} of the last 5 years`],
+    [/^main channel moving closer, ~(\S+) m\/yr$/i, (_, n) => `River moving closer, about ${n} m a year`],
+    [/^a channel moving closer, ~(\S+) m\/yr$/i, (_, n) => `A side river moving closer, about ${n} m a year`],
+    [/^main channel only ~(\S+) m away$/i, (_, n) => `River only about ${n} m away`],
+    [/^open water just upstream$/i, () => "Open water just upriver"],
+    [/^young land \(~(\S+) yr since last water\)$/i, (_, n) => `New land, under water about ${unit(n, "year")} ago`],
+    [/^on a char \(island\)$/i, () => "On a river island (char)"],
+  ];
+  const plain = (s) => { const hit = PLAIN.find(([re]) => re.test(s)); return hit ? s.replace(hit[0], hit[1]) : cap(s); };
 
   if (!F || !REP) {
     $("carousel").innerHTML = `<p class="sub empty">No forecast yet. Run <code>python run_forecast.py</code> to create <code>web/data/forecast.js</code>.</p>`;
@@ -43,53 +56,55 @@
 
   // ---- the journey ---------------------------------------------------------------------
   const hasPast = !!(S && S.places.length);
-  const HASHES = ["#forecast", "#predicted", "#actual"];
-  const TITLES = ["This year's forecast", "What a past forecast said", "What really happened"];
-  const NEXT = ["Did it work before?", "What happened?", "Details"];
-  const PREV = ["", "This year", "The forecast"];
-  const last = hasPast ? 2 : 0;
+  const HASHES = ["#predicted", "#actual", "#forecast"];
+  const TITLES = ["Past prediction", "What happened", "2026 risk map"];
+  const NEXT = ["See what happened", "See the 2026 map", "Read more"];
+  const PREV = ["", "Back", "Back"];
+  const first = hasPast ? 0 : 2, last = 2;
   const stepBtns = [...document.querySelectorAll("#stepper button")];
   const slideFc = $("slide-forecast"), slidePa = $("slide-past");
-  let cur = 0, entered = -1, revealTimer = 0, past = null;
+  let cur = first, entered = -1, revealTimer = 0, past = null, mapOpened = false;
 
   function setOverlays() {
     clearTimeout(revealTimer);
     if (!past) return;
     const show = (list, on) => list.forEach((o) => o.setOpacity(on ? 1 : 0));
     const later = (fn, ms) => { if (CALM) fn(); else revealTimer = setTimeout(fn, ms); };
-    if (cur === 0) { show(past.pred, false); show(past.act, false); }
-    else if (cur === 1) { show(past.act, false); later(() => show(past.pred, true), 500); }
+    if (cur === 2) { show(past.pred, false); show(past.act, false); }
+    else if (cur === 0) { show(past.act, false); later(() => show(past.pred, true), 500); }
     else { show(past.pred, true); show(past.act, false); later(() => show(past.act, true), 750); }
   }
   function enterStep() {
-    slideFc.classList.toggle("on", cur === 0);
-    slidePa.classList.toggle("on", cur > 0);
-    slidePa.dataset.phase = cur === 2 ? "actual" : "predict";
+    slideFc.classList.toggle("on", cur === 2);
+    slidePa.classList.toggle("on", cur < 2);
+    slidePa.dataset.phase = cur === 1 ? "actual" : "predict";
     setOverlays();
+    // The 2026 map is the last step, so its fly-in and pin drop wait until it opens.
+    if (cur === 2 && !mapOpened) { mapOpened = true; drawSite(2.2); }
     if (entered !== cur) {
       entered = cur;
-      if (cur === 0) rollUp($("stats"));
-      else rollUp(slidePa.querySelector(cur === 1 ? ".story" : ".t-act") || slidePa);
+      if (cur === 2) rollUp($("stats"));
+      else rollUp(slidePa.querySelector(cur === 0 ? ".story" : ".t-act") || slidePa);
     }
     const act = slidePa.querySelector(".fig.act"), story = slidePa.querySelector(".story");
-    if (act) act.inert = cur !== 2;
-    if (story) story.inert = cur !== 1;
+    if (act) act.inert = cur !== 1;
+    if (story) story.inert = cur !== 0;
   }
   function goTo(i, opts = {}) {
-    cur = Math.max(0, Math.min(last, i));
-    $("track").style.transform = `translateX(${cur ? -100 : 0}%)`;
-    slideFc.inert = cur !== 0; slidePa.inert = cur === 0;
+    cur = Math.max(first, Math.min(last, i));
+    $("track").style.transform = `translateX(${cur === 2 ? -100 : 0}%)`;
+    slideFc.inert = cur !== 2; slidePa.inert = cur === 2;
     stepBtns.forEach((b, n) => {
       if (n === cur) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current");
       b.parentElement.classList.toggle("done", n <= cur);
     });
-    $("prev").disabled = cur === 0;
+    $("prev").disabled = cur === first;
     $("prev-label").textContent = PREV[cur];
-    $("prev").setAttribute("aria-label", cur ? `Previous step: ${PREV[cur]}` : "Previous step");
+    $("prev").setAttribute("aria-label", "Previous step");
     $("next-label").textContent = NEXT[cur];
     $("next").setAttribute("aria-label", cur === last ? "Go to the details" : `Next step: ${NEXT[cur]}`);
     $("next").classList.toggle("down", cur === last);
-    $("announce").textContent = `Step ${cur + 1} of ${last + 1}: ${TITLES[cur]}`;
+    $("announce").textContent = `Step ${cur - first + 1} of ${last - first + 1}: ${TITLES[cur]}`;
     if (!opts.quiet) history.replaceState(null, "", HASHES[cur]);
     enterStep();
   }
@@ -127,8 +142,8 @@
     const i = HASHES.indexOf(location.hash); if (i >= 0) goTo(i, { quiet: true });
   });
   if (!hasPast) {
-    stepBtns.slice(1).forEach((b) => { b.parentElement.hidden = true; });
-    slidePa.hidden = true; $("prev").hidden = true; NEXT[0] = "Details";
+    stepBtns.slice(0, 2).forEach((b) => { b.parentElement.hidden = true; });
+    slidePa.hidden = true; $("prev").hidden = true;
   }
 
   // ---- step 1: this year's forecast ------------------------------------------------------
@@ -136,11 +151,14 @@
   const siteName = (sid) => (SITES[sid] || sid).replace(" upazila", "");
   let site = SITES[store.get("site")] ? store.get("site") : ("chauhali" in SITES ? "chauhali" : Object.keys(SITES)[0]);
   $("year").textContent = $("year-h").textContent = REP.live.year;
-  $("fc-sub").textContent = `Each colored stretch is ${REP.protocol.cell_m} m of bank, scored from ${F.issued_from} satellite images, before the rains.`;
+  $("fc-sub").textContent = `The AI studied satellite images from January to March ${REP.live.year}. Colored areas are most at risk.`;
 
   // Whole zoom levels only: Esri tiles show seams when Leaflet scales them to a fractional zoom.
   const map = L.map("map", { scrollWheelZoom: false, zoomControl: true }).setView([24.4, 89.72], 9);
   L.tileLayer(ESRI, { maxZoom: 18, attribution: "Esri, Maxar" }).addTo(map);
+  // Our own cloud-masked dry-season image sits between Esri's photo and the risk colours.
+  map.createPane("dry").style.zIndex = 350;
+  const dryLoaded = {};
   (F.reaches || []).forEach((r) => {
     const [w, s, e, n] = r.bounds;
     L.imageOverlay(r.png, [[s, w], [n, e]], { opacity: 0.9, interactive: false }).addTo(map);
@@ -149,9 +167,14 @@
 
   function geo(sid) {
     const r = R && Object.values(R.results).find((x) => x.site === sid && x.bounds);
-    return r && { bounds: r.bounds, boundary: r.boundary };
+    return r && { bounds: r.bounds, boundary: r.boundary, dry: r.layers?.s2_dry?.url };
   }
-  const why = (c) => (c.why.length ? cap(c.why[0]) : "Several smaller warning signs together");
+  function showDry(sid, g) {
+    if (dryLoaded[sid] || !g?.dry) return;
+    const [w, s, e, n] = g.bounds;
+    dryLoaded[sid] = L.imageOverlay(g.dry, [[s, w], [n, e]], { pane: "dry", interactive: false, attribution: "Sentinel-2 (ESA)" }).addTo(map);
+  }
+  const why = (c) => (c.why.length ? plain(c.why[0]) : "Several smaller signs of risk");
 
   // The panel floats over the map's right side, so "centre" means the centre of what is left.
   function panelWidth() {
@@ -187,17 +210,18 @@
   function drawSite(duration) {
     siteLayer.clearLayers(); markers = []; activeRow = -1;
     const g = geo(site);
+    showDry(site, g);
     outline = g ? L.geoJSON(g.boundary, { style: { color: "#fff", weight: 2, dashArray: "6 4", fill: false }, interactive: false }).addTo(siteLayer) : null;
     const cells = (F.watch[site] || []).slice(0, 5);
     cells.forEach((c, i) => {
       markers[i] = L.marker([c.lat, c.lon], { icon: L.divIcon({ className: "pin", html: `<span style="--i:${i}">${i + 1}</span>`, iconSize: [24, 24] }) })
-        .bindPopup(`<b>${pct(c.risk)} chance</b> of losing land this monsoon<br>${c.why.map((x) => esc(cap(x))).join("<br>")}`)
+        .bindPopup(`<b>${pct(c.risk)} chance</b> of losing land this monsoon<br>${c.why.map((x) => esc(plain(x))).join("<br>")}`)
         .on("click", () => markRow(i))
         .addTo(siteLayer);
     });
     ((F.escalated || {})[site]?.cells || []).forEach((c) =>
       L.circleMarker([c.lat, c.lon], { radius: 6, color: "#fff", weight: 2, fillColor: css("--map-high"), fillOpacity: 1 })
-        .bindPopup(`<b>Erosion already seen here</b><br>Radar spotted ${fmt(c.detected_ha, 1)} ha of bank lost ${c.nearest_m} m from a flagged stretch.`)
+        .bindPopup(`<b>Land already lost here</b><br>Satellites saw ${fmt(c.detected_ha, 1)} hectares lost, ${c.nearest_m} m from a marked area.`)
         .addTo(siteLayer));
 
     const t = F.tier_counts[site] || {}, ex = (F.escalated || {})[site];
@@ -205,11 +229,11 @@
     $("stats").innerHTML = `
       <div class="stat"><i class="sw hi"></i><b data-count="${t.high || 0}">${fmt(t.high)}</b><span>High alert</span></div>
       <div class="stat"><i class="sw wa"></i><b data-count="${t.watch || 0}">${fmt(t.watch)}</b><span>Watch</span></div>
-      ${ex ? `<div class="stat"><i class="sw ring"></i><b data-count="${nEx}">${fmt(nEx)}</b><span>Confirmed by radar${exDate ? `, ${esc(exDate)}` : ""}</span></div>` : ""}`;
-    $("h-list").textContent = `Riskiest stretches in ${siteName(site)}`;
-    $("list").innerHTML = cells.length ? cells.map((c, i) => `<li><button type="button" data-i="${i}" aria-label="Stretch ${i + 1}, ${pct(c.risk)} risk: ${esc(why(c))}">
-        <span class="n">${i + 1}</span><span class="w">${esc(why(c))}</span><span class="r">${pct(c.risk)}</span></button></li>`).join("")
-      : `<li class="none">No stretch is flagged in ${esc(siteName(site))}.</li>`;
+      ${ex ? `<div class="stat"><i class="sw ring"></i><b data-count="${nEx}">${fmt(nEx)}</b><span>Land loss already seen${exDate ? `, ${esc(exDate)}` : ""}</span></div>` : ""}`;
+    $("h-list").textContent = `Most at risk in ${siteName(site)}`;
+    $("list").innerHTML = cells.length ? cells.map((c, i) => `<li><button type="button" data-i="${i}" aria-label="Place ${i + 1}, ${pct(c.risk)} risk: ${esc(why(c))}. See it on the map.">
+        <span class="n">${i + 1}</span><span class="w">${esc(why(c))}</span><span class="r">${pct(c.risk)}</span><span class="go" aria-hidden="true"><span class="go-t">See on map </span>›</span></button></li>`).join("")
+      : `<li class="none">No place is marked in ${esc(siteName(site))}.</li>`;
     document.querySelectorAll("#sites button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.site === site)));
     overview(duration);
   }
@@ -245,31 +269,31 @@
     box.innerHTML = `
       <div class="pa-grid">
         <figure class="fig pred"><div class="cmap" id="map-pred"></div>
-          <figcaption><b>Predicted</b> March ${y}<span class="long">, before the monsoon</span></figcaption>
+          <figcaption><b>Predicted</b><span>March ${y}<span class="long">, before the rains</span></span></figcaption>
           <p class="key"><span><i class="sw hi"></i>High alert</span>${highLed ? "" : `<span><i class="sw wa"></i>Watch</span>`}</p></figure>
         <div class="pa-right">
           <div class="story">
-            <p class="eyebrow">Back to March ${y}</p>
-            <h2>Before the rains, the AI marked this bank</h2>
+            <p class="eyebrow">A real test from March ${y}</p>
+            <h2>Before the rains, the AI marked this riverbank</h2>
             <p class="sub">${esc(p.place)}</p>
-            <p class="big"><b data-count="${nFlag}">${fmt(nFlag)}</b> of ${fmt(c.cells)} stretches on the ${list} list</p>
+            <p class="big"><b data-count="${nFlag}">${fmt(nFlag)}</b> of ${fmt(c.cells)} riverbank areas marked ${list}</p>
           </div>
           <figure class="fig act"><div class="cmap" id="map-act"></div>
-            <figcaption><b>What happened</b> One year later</figcaption>
+            <figcaption><b>What happened</b><span>One year later</span></figcaption>
             <p class="key"><span><i class="sw lost"></i>Land the river took</span></p></figure>
         </div>
+        <label class="pick"><span>Try another place</span><select id="place">${opts}</select></label>
       </div>
       <div class="strip">
         <div class="strip-text">
-          <p class="t-pred sub">The model had never seen ${y} when it made this forecast.</p>
+          <p class="t-pred sub">The AI made this prediction without seeing what happened in ${y}.</p>
           <div class="t-act">
-            <p class="headline"><b data-count="${Math.round(caught * 100)}" data-tail="%">${pct(caught)}</b> of the land lost was on the ${list} list, which covered ${pct(nFlag / c.cells)} of the bank.</p>
-            <p class="fine">Within ${km} km: ${fmt(c.lost_ha, 1)} ha lost, ${fmt(nHit)} of ${fmt(nFlag)} flagged stretches eroded.
-              ${p.kind === "event" && p.sources?.length ? `Reported in <a href="${esc(p.sources[0].url)}" target="_blank" rel="noopener">${esc(p.sources[0].title)}</a>.` : ""}
-              One example. <a href="#score">See the overall score</a>.</p>
+            <p class="headline"><b data-count="${Math.round(caught * 100)}" data-tail="%">${pct(caught)}</b> of the land lost was in places marked ${list}. Those places were only ${pct(nFlag / c.cells)} of the riverbank here.</p>
+            <p class="fine">Within ${km} km of this place, ${fmt(c.lost_ha, 1)} hectares were lost. ${fmt(nHit)} of the ${fmt(nFlag)} marked areas lost land.
+              ${p.kind === "event" && p.sources?.length ? `News report: <a href="${esc(p.sources[0].url)}" target="_blank" rel="noopener">${esc(p.sources[0].title)}</a>.` : ""}
+              This is one example. <a href="#score">See results for all years</a>.</p>
           </div>
         </div>
-        <label class="pick"><span class="vh">Choose a place</span><select id="place">${opts}</select></label>
       </div>`;
 
     if (duo) { duo.a.remove(); duo.b.remove(); }
@@ -301,9 +325,8 @@
   }
 
   // ---- open: land on the requested step, then let the first one play --------------------
-  const start = Math.max(0, HASHES.indexOf(location.hash));
+  const start = Math.max(first, HASHES.indexOf(location.hash));
   $("track").style.transition = "none";
-  drawSite(start === 0 ? 2.2 : 0.01);
   goTo(start, { quiet: true });
   slideFc.classList.remove("on"); slidePa.classList.remove("on");
   requestAnimationFrame(() => requestAnimationFrame(() => { $("track").style.transition = ""; enterStep(); }));
@@ -312,12 +335,12 @@
   // Quote the first version's figure: its inputs were fixed before the test years were looked at.
   const rk = REP.ranking.all_rivers, yrs = REP.protocol.test_years.join("–"), hi = REP.tiers.all_rivers.high;
   const rows = [
-    ["AI forecast", rk.ai_version1.capture_top20, true],
-    ["Rule: flag what eroded last year", rk.eroded_last_year.capture_top20],
-    ["Rule: flag what is closest to the river", rk.closest_to_river.capture_top20],
+    ["Our AI", rk.ai_version1.capture_top20, true],
+    ["Simple guess: places that lost land last year", rk.eroded_last_year.capture_top20],
+    ["Simple guess: places closest to the river", rk.closest_to_river.capture_top20],
   ];
-  $("score-line").textContent = `Each method marked the riskiest 20% of the bank. In ${yrs}, years the AI never saw, this is how much of the land the Jamuna and Padma took fell inside that 20%.`;
+  $("score-line").textContent = `Each method picked the 20% of riverbank it thought was most at risk. We tested ${yrs}, years the AI had not seen. The bars show how much of the lost land was inside that 20%.`;
   $("bars").innerHTML = rows.map(([label, v, me]) => `<div class="bar${me ? " me" : ""}">
       <span class="bl">${esc(label)}</span><span class="bt"><i style="width:${(v * 100).toFixed(1)}%" title="${(v * 100).toFixed(1)}%"></i></span><span class="bv">${pct(v)}</span></div>`).join("");
-  $("score-fine").textContent = `${pct(hi.precision)} of High alert stretches lost land, about ${Math.round(hi.lift)}× the rate of an average stretch. That is about ${fmt(Math.round(hi.true_alerts_per_year / 50) * 50)} correct alerts and ${fmt(Math.round(hi.false_alarms_per_year / 50) * 50)} false alarms a year.`;
+  $("score-fine").textContent = `${pct(hi.precision)} of High alert places lost land, about ${Math.round(hi.lift)} times more often than an average place. Each year that was about ${fmt(Math.round(hi.true_alerts_per_year / 50) * 50)} correct warnings and ${fmt(Math.round(hi.false_alarms_per_year / 50) * 50)} false alarms.`;
 })();
