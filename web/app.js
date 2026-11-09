@@ -20,6 +20,24 @@
   const BANGLA = { kazipur: "কাজীপুর", chauhali: "চৌহালী" };
   const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
   const CALM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // These two repeat queries in style.css, so change them together.
+  const STACKED = matchMedia("(max-width: 860px) and (min-height: 501px), (max-width: 560px)");
+  const FOLD = matchMedia("(max-width: 640px), (max-height: 500px)");
+  FOLD.addEventListener("change", () => document.querySelectorAll(".how").forEach((d) => { d.open = !FOLD.matches; }));
+  const popupSize = () => ({ maxWidth: Math.min(300, innerWidth - 64) });
+  // Leaflet only notices window resizes, but these maps also change when the text beside them does.
+  function watchSize(m, onWidthChange, onHeightChange) {
+    if (!window.ResizeObserver) return;
+    const el = m.getContainer();
+    let width = el.clientWidth;
+    const ro = new ResizeObserver(() => {
+      m.invalidateSize({ animate: false });
+      if (el.clientWidth !== width) { width = el.clientWidth; onWidthChange?.(); }
+      else onHeightChange?.();
+    });
+    ro.observe(el);
+    m.on("unload", () => ro.disconnect());
+  }
   // The forecast data words its reasons technically; visitors see them in plain language.
   const unit = (n, word) => `${n} ${word}${n === "1" ? "" : "s"}`;
   const PLAIN = [
@@ -125,10 +143,11 @@
     if (scrollY > innerHeight / 2) return;
     if (e.key === "ArrowLeft") advance(-1); else if (cur < last) advance(1);
   });
-  // Swipe anywhere except on a map, where a drag must still pan.
+  // Swipe anywhere except on a map a finger can pan. On phones the two past maps don't pan.
+  const NO_SWIPE = `${L.Browser.mobile ? "#map" : ".leaflet-container"}, select, .list`;
   let swipeX = null, swipeY = null;
   $("viewport").addEventListener("touchstart", (e) => {
-    const skip = e.target.closest(".leaflet-container, select, .list");
+    const skip = e.target.closest(NO_SWIPE);
     swipeX = skip || e.touches.length > 1 ? null : e.touches[0].clientX;
     swipeY = e.touches[0].clientY;
   }, { passive: true });
@@ -164,6 +183,7 @@
     L.imageOverlay(r.png, [[s, w], [n, e]], { opacity: 0.9, interactive: false }).addTo(map);
   });
   let siteLayer = L.layerGroup().addTo(map), markers = [], activeRow = -1, outline = null;
+  watchSize(map, () => { if (mapOpened && activeRow < 0) overview(0.4); });
 
   function geo(sid) {
     const r = R && Object.values(R.results).find((x) => x.site === sid && x.bounds);
@@ -178,7 +198,7 @@
 
   // The panel floats over the map's right side, so "centre" means the centre of what is left.
   function panelWidth() {
-    if (innerWidth <= 860) return 0;
+    if (STACKED.matches) return 0;
     const m = $("map").getBoundingClientRect(), p = document.querySelector(".panel").getBoundingClientRect();
     return Math.max(0, m.right - p.left);
   }
@@ -215,13 +235,13 @@
     const cells = (F.watch[site] || []).slice(0, 5);
     cells.forEach((c, i) => {
       markers[i] = L.marker([c.lat, c.lon], { icon: L.divIcon({ className: "pin", html: `<span style="--i:${i}">${i + 1}</span>`, iconSize: [24, 24] }) })
-        .bindPopup(`<b>${pct(c.risk)} chance</b> of losing land this monsoon<br>${c.why.map((x) => esc(plain(x))).join("<br>")}`)
+        .bindPopup(`<b>${pct(c.risk)} chance</b> of losing land this monsoon<br>${c.why.map((x) => esc(plain(x))).join("<br>")}`, popupSize())
         .on("click", () => markRow(i))
         .addTo(siteLayer);
     });
     ((F.escalated || {})[site]?.cells || []).forEach((c) =>
       L.circleMarker([c.lat, c.lon], { radius: 6, color: "#fff", weight: 2, fillColor: css("--map-high"), fillOpacity: 1 })
-        .bindPopup(`<b>Land already lost here</b><br>Satellites saw ${fmt(c.detected_ha, 1)} hectares lost, ${c.nearest_m} m from a marked area.`)
+        .bindPopup(`<b>Land already lost here</b><br>Satellites saw ${fmt(c.detected_ha, 1)} hectares lost, ${c.nearest_m} m from a marked area.`, popupSize())
         .addTo(siteLayer));
 
     const t = F.tier_counts[site] || {}, ex = (F.escalated || {})[site];
@@ -235,6 +255,7 @@
         <span class="n">${i + 1}</span><span class="w">${esc(why(c))}</span><span class="r">${pct(c.risk)}</span><span class="go" aria-hidden="true"><span class="go-t">See on map </span>›</span></button></li>`).join("")
       : `<li class="none">No place is marked in ${esc(siteName(site))}.</li>`;
     document.querySelectorAll("#sites button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.site === site)));
+    map.invalidateSize({ animate: false });   // filling the panel can have shrunk the map
     overview(duration);
   }
   $("sites").innerHTML = Object.keys(SITES).map((id) => `<button type="button" data-site="${esc(id)}">${esc(siteName(id))}${
@@ -289,30 +310,42 @@
           <p class="t-pred sub">The AI made this prediction without seeing what happened in ${y}.</p>
           <div class="t-act">
             <p class="headline"><b data-count="${Math.round(caught * 100)}" data-tail="%">${pct(caught)}</b> of the land lost was in places marked ${list}. Those places were only ${pct(nFlag / c.cells)} of the riverbank here.</p>
+            <details class="how"${FOLD.matches ? "" : " open"}><summary>How this was measured</summary>
             <p class="fine">Within ${km} km of this place, ${fmt(c.lost_ha, 1)} hectares were lost. ${fmt(nHit)} of the ${fmt(nFlag)} marked areas lost land.
               ${p.kind === "event" && p.sources?.length ? `News report: <a href="${esc(p.sources[0].url)}" target="_blank" rel="noopener">${esc(p.sources[0].title)}</a>.` : ""}
-              This is one example. <a href="#score">See results for all years</a>.</p>
+              This is one example. <a href="#score">See results for all years</a>.</p></details>
           </div>
         </div>
       </div>`;
 
     if (duo) { duo.a.remove(); duo.b.remove(); }
+    const [w, s, e, n] = p.bounds, bb = [[s, w], [n, e]];
     // On touch screens these two maps let one finger scroll the page; pinch still zooms.
+    // The images end at their bounds, so the view is held inside them.
     const mk = (el) => L.map(el, { zoomControl: false, attributionControl: false, scrollWheelZoom: false,
-      dragging: !L.Browser.mobile, zoomSnap: 0.1, maxZoom: 17 });
+      dragging: !L.Browser.mobile, zoomSnap: 0.1, maxZoom: 17,
+      maxBounds: bb, maxBoundsViscosity: 1, bounceAtZoomLimits: false });
     duo = { a: mk("map-pred"), b: mk("map-act") };
     L.control.zoom({ position: "topright" }).addTo(duo.b);
     let busy = false;
     const follow = (a, b) => a.on("move", () => { if (busy) return; busy = true; b.setView(a.getCenter(), a.getZoom(), { animate: false }); busy = false; });
     follow(duo.a, duo.b); follow(duo.b, duo.a);
-    const [w, s, e, n] = p.bounds, bb = [[s, w], [n, e]];
     const img = (m, url, o) => L.imageOverlay(url, bb, { interactive: false, opacity: o ?? 1, className: "fades" }).addTo(m);
     img(duo.a, p.images.before); img(duo.b, p.images.after);
     past = { pred: [...(highLed ? [] : [img(duo.a, p.images.watch, 0)]), img(duo.a, p.images.high, 0)],
              act: [img(duo.b, p.images.actual, 0)] };
     duo.a.invalidateSize(); duo.b.invalidateSize();
-    // Fill the frame edge to edge; the images end at their bounds, so never show past them.
-    duo.a.setView(L.latLngBounds(bb).getCenter(), duo.a.getBoundsZoom(bb, true), { animate: false });
+    // Fill the frame edge to edge. The furthest-out zoom is the one where the image still fills it.
+    // getBoundsZoom obeys the current minimum, so clear that first or a smaller frame can't zoom out.
+    const lock = () => {
+      duo.a.setMinZoom(0);
+      const z = duo.a.getBoundsZoom(bb, true);
+      duo.a.setMinZoom(z); duo.b.setMinZoom(z);
+      return z;
+    };
+    const fit = () => duo.a.setView(L.latLngBounds(bb).getCenter(), lock(), { animate: false });
+    fit();
+    watchSize(duo.a, fit, lock); watchSize(duo.b);
   }
   if (hasPast) {
     slidePa.addEventListener("change", (e) => {

@@ -35,7 +35,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body { margin: 0; font: 16px/1.55 var(--f); background: var(--paper); color: var(--ink); overflow-x: hidden; }
 a { color: var(--accent); text-underline-offset: 2px; }
 h1, h2, h3 { text-wrap: balance; margin: 0; }
@@ -57,7 +57,7 @@ code { font-size: 13px; background: var(--soft); padding: 1px 5px; border-radius
 .sw.ring { border-radius: 50%; background: var(--map-high); box-shadow: 0 0 0 2px var(--surface) inset, 0 0 0 1px var(--rule-bar); }
 
 /* ---- the stage: exactly one screen ------------------------------------------ */
-.stage { position: relative; height: 100svh; min-height: 540px; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: var(--bar) minmax(0, 1fr); background: var(--surface); }
+.stage { position: relative; height: 100vh; height: 100svh; min-height: 540px; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: var(--bar) minmax(0, 1fr); background: var(--surface); }
 .bar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; padding-inline: 24px; border-bottom: 1px solid var(--rule); }
 .name { font-weight: 700; font-size: 17px; color: var(--ink); text-decoration: none; letter-spacing: -.01em; white-space: nowrap; }
 .to-details { justify-self: end; font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: none; white-space: nowrap;
@@ -217,73 +217,152 @@ code { font-size: 13px; background: var(--soft); padding: 1px 5px; border-radius
 /* Esri's undated photo is only context: dim it so the clear upazila image stands out. */
 #map .leaflet-tile-pane { filter: grayscale(.6) brightness(.55); }
 
-/* ---- small screens ------------------------------------------------------------------ */
+/* ---- small screens ------------------------------------------------------------------
+   Three layers: shared phone styling, then one of two layouts.
+   app.js repeats the "stacked" and "fold" queries, so change them together. */
+.how summary { display: none; }
 @media (max-width: 1080px) {
-  .stepper .lab { display: none; }
-  .stepper button[aria-current] .lab { display: inline; }
+  .stepper button:not([aria-current]) .lab { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   .stepper li + li::before { width: 24px; margin-inline: 6px; }
   .story { padding-left: 32px; }
   .pick select { max-width: 220px; }
 }
-@media (max-width: 860px) {
+@media (max-width: 640px) { .long { display: none; } }
+@media (min-width: 861px) and (min-height: 501px) and (max-height: 760px) { .panel .sub, .panel .eyebrow { display: none; } .go-t { display: none; } .list button { padding-block: 4px; } }
+
+/* Fingers need a bigger target than the 24px pin. */
+@media (pointer: coarse) { .pin::after { content: ""; position: absolute; inset: -10px; } }
+
+/* The fine print under a result folds away wherever height is short. */
+@media (max-width: 640px), (max-height: 500px) {
+  .how summary { display: flex; align-items: center; gap: 6px; min-height: 40px; font-size: 13.5px; font-weight: 600; color: var(--accent); cursor: pointer; list-style: none; }
+  .how summary::-webkit-details-marker { display: none; }
+  .how summary::after { content: "›"; font-size: 18px; line-height: 1; transition: transform .2s; }
+  .how[open] summary::after { transform: rotate(90deg); }
+  .strip { max-height: 40vh; max-height: 40svh; overflow-y: auto; }
+}
+
+/* Layer 1: shared by every phone layout. */
+@media (max-width: 860px), (max-height: 500px) {
   :root { --bar: 54px; }
-  .wrap { padding-inline: 16px; }
-  .stage { min-height: 600px; }
-  .bar { padding-inline: 16px; gap: 6px; grid-template-columns: minmax(0, 1fr) auto auto; }
-  .name { font-size: 13px; overflow: hidden; text-overflow: ellipsis; }
-  .to-details { font-size: 12.5px; padding: 3px 9px; }
-  .stepper button { padding: 2px; }
-  .stepper button[aria-current] .lab { display: none; }
-  .stepper li + li::before { width: 6px; margin-inline: 2px; }
+  .wrap { padding-inline: max(16px, env(safe-area-inset-left)) max(16px, env(safe-area-inset-right)); }
+  .details { padding-top: 48px; padding-bottom: max(56px, env(safe-area-inset-bottom)); }
+  .bar { padding-inline: max(16px, env(safe-area-inset-left)) max(16px, env(safe-area-inset-right)); gap: 8px; grid-template-columns: minmax(0, 1fr) auto auto; }
+  .name { font-size: 14px; overflow: hidden; text-overflow: ellipsis; }
+  .to-details { display: inline-flex; align-items: center; min-height: 44px; padding: 0 2px; border: 0; border-radius: 0; font-size: 13.5px; }
+  .to-details:hover { background: none; color: var(--accent); }
+  .stepper .lab { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .stepper button { justify-content: center; min-width: 36px; min-height: 44px; padding: 0; }
+  .stepper li + li::before { width: 8px; margin-inline: 0; }
 
-  .nav { top: 31%; width: auto; }
-  .nav.prev { left: 6px; } .nav.next { right: 6px; }
-  .nav.prev small { display: none; }
-  .ic { width: 40px; height: 40px; font-size: 24px; }
-  .nav.next .ic { width: 54px; height: 54px; font-size: 30px; }
-  .nav.next small { font-size: 11.5px; max-width: 84px; padding: 3px 7px; }
+  /* Next and Back stop floating over the maps; each layout below says where they sit. */
+  .nav { transform: none; width: auto; flex-direction: row; justify-content: center; gap: 2px; }
+  .ic, .nav.next .ic { width: 28px; height: 28px; font-size: 24px; padding-bottom: 3px; background: none; box-shadow: none; color: inherit; }
+  .nav:hover .ic { transform: none; }
+  .nav.down:hover .ic { transform: rotate(90deg); }
+  .nav small, .nav.next small { font-size: 15px; font-weight: 600; color: inherit; background: none; padding: 0; border-radius: 0; box-shadow: none; }
+  .nav.prev { color: var(--ink); }
+  .nav.next { flex-direction: row-reverse; color: var(--surface); background: var(--accent); border-radius: 12px; }
+  .nav.nudge .ic { animation: none; }
+  .nav.next.nudge { animation: nudge 1.8s ease-out 2s infinite; }
 
-  .fc { display: flex; flex-direction: column; }
-  .map { position: relative; inset: auto; flex: 1; min-height: 0; }
-  .panel { position: static; width: auto; height: auto; max-height: none; margin: 0; overflow: visible; border-radius: 0; box-shadow: none; padding: 12px 16px 14px; gap: 9px; }
-  .panel .eyebrow, .panel .sub { display: none; }
-  .panel h1 { font-size: 19px; margin-top: 0; }
+  .map { position: relative; inset: auto; }
+  .panel { position: static; width: auto; margin: 0; overflow-y: auto; border-radius: 0; box-shadow: none; }
+  .panel .sub { display: none; }
+  .panel .eyebrow { font-size: 12px; line-height: 1.3; }
+  .panel h1 { font-size: 18px; margin-top: 0; }
+  .seg button { min-height: 44px; }
   .stat b { font-size: 20px; }
   .mini { display: none; }
   .hint { margin: 0 0 2px; font-size: 12.5px; }
   .list { flex-direction: row; gap: 4px; margin: 0; }
   .list li { flex: 1 1 0; min-width: 0; }
-  .list button { display: flex; justify-content: center; gap: 4px; padding: 5px 2px; font-size: 13px; }
+  .list button { display: flex; justify-content: center; gap: 4px; min-height: 44px; padding: 4px 2px; font-size: 13px; }
   .list button:hover { transform: none; }
   .list .w, .list .go { display: none; }
 
-  .pa-grid { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
-  .story { padding: 14px 20px; gap: 4px; justify-content: center; }
-  .story h2 { font-size: 21px; }
   .big { margin-top: 4px; font-size: 14px; }
   .big b { display: inline; font-size: 30px; }
-  .strip { flex-direction: column; align-items: stretch; padding: 10px 16px; gap: 8px; min-height: 0; }
-  .fig figcaption, .fig .key { left: 10px; }
-  .fig figcaption { top: 10px; padding: 5px 11px 6px; font-size: 12.5px; }
-  .fig figcaption b { font-size: 18px; }
-  .fig .key { top: 66px; font-size: 12px; }
-  /* The picker straddles the join between the two maps, so the lower map's labels start below it. */
-  .fig.act figcaption { top: 38px; }
-  .fig.act .key { top: 94px; }
-  .fig.act .leaflet-top { top: 28px; }
-  .pick, .pa[data-phase="actual"] .pick { left: 50%; top: 50%; bottom: auto; transform: translate(-50%, -50%); width: calc(100% - 32px); padding: 6px 8px 6px 12px; }
+  .story { gap: 4px; justify-content: center; }
+  .story h2 { font-size: 19px; }
+  .fig figcaption, .fig .key { left: 8px; }
+  .fig figcaption { top: 8px; padding: 4px 10px 5px; font-size: 12.5px; }
+  .fig figcaption b { font-size: 17px; }
+  .fig .key { font-size: 12px; }
+  .pick select { font-size: 16px; min-height: 44px; padding-block: 4px; }
+  .strip { flex-direction: column; align-items: stretch; padding: 8px max(16px, env(safe-area-inset-right)) 4px max(16px, env(safe-area-inset-left)); gap: 8px; min-height: 0; overflow-wrap: anywhere; }
   .headline { font-size: 15px; }
   .headline b { font-size: 22px; }
   .strip .fine { font-size: 12.5px; }
-  .pick select { flex: 1; width: 100%; max-width: none; }
 
   .row { grid-template-columns: 1fr; }
   .bars .bar { grid-template-columns: 1fr 44px; gap: 4px 12px; }
   .bars .bar .bl { grid-column: 1 / -1; }
-  .details { padding-top: 48px; }
 }
-@media (max-width: 640px) { .long { display: none; } }
-@media (min-width: 861px) and (max-height: 760px) { .panel .sub, .panel .eyebrow { display: none; } .go-t { display: none; } .list button { padding-block: 4px; } }
+
+/* Layer 2: stacked. Top to bottom, with Back and Next in a row under the thumb. */
+@media (max-width: 860px) and (min-height: 501px), (max-width: 560px) {
+  .stage { min-height: 520px; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: var(--bar) minmax(0, 1fr) auto; border-top: 0; }
+  .bar, .viewport { grid-column: 1 / -1; }
+  .nav { position: static; grid-row: 3; min-height: 48px; margin-block: 8px max(8px, env(safe-area-inset-bottom)); }
+  .nav.prev { grid-column: 1; margin-left: 12px; padding-inline: 4px 14px; }
+  .nav.next { grid-column: 2; margin-inline: 4px 12px; padding-inline: 14px 8px; }
+  .nav.prev:disabled { display: none; }
+  .nav.prev:disabled + .nav.next { grid-column: 1 / -1; margin-left: 12px; }
+
+  .fc { display: flex; flex-direction: column; }
+  .map { flex: 1 1 200px; min-height: 200px; }
+  .panel { flex: 0 1 auto; height: auto; max-height: 55%; padding: 10px 16px 12px; gap: 8px; }
+
+  .pa-grid { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr); gap: 0; }
+  .fig.pred { grid-row: 1; }
+  .pa-right { grid-row: 3; }
+  .pick { grid-row: 2; position: static; transform: none; padding: 4px 12px; border-radius: 0; box-shadow: none; border-block: 1px solid var(--rule); transition: none; }
+  .pick select { flex: 1; width: 100%; max-width: none; }
+  .story { padding: 8px 20px; }
+  /* The upper map's picker no longer sits on these, so the legend can use the free corner. */
+  .fig .key { top: auto; bottom: 8px; }
+}
+@media (max-width: 480px) { .to-details { display: none; } .bar { grid-template-columns: minmax(0, 1fr) auto; } }
+@media (max-width: 400px) {
+  .list button { flex-direction: column; gap: 1px; padding-block: 3px; font-size: 12.5px; }
+  .list .n { width: 20px; height: 20px; font-size: 11.5px; }
+  .pick > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .pick { padding-inline: 8px; }
+  .pick select { padding-inline: 4px; }
+}
+@media (max-width: 860px) and (min-height: 501px) and (max-height: 700px) {
+  .story .eyebrow, .fig figcaption span, .hint { display: none; }
+  .story h2 { font-size: 17px; }
+  .story .sub { font-size: 14px; }
+  .big b { font-size: 24px; }
+}
+
+/* Layer 3: short and wide, a phone on its side. Side by side, with Back and Next in the header. */
+@media (max-height: 500px) and (min-width: 561px) {
+  :root { --bar: 44px; }
+  .stage { min-height: 280px; }
+  .bar { grid-template-columns: auto auto minmax(0, 1fr); padding-right: calc(276px + env(safe-area-inset-right)); }
+  .to-details { display: none; }
+  .nav { top: 2px; height: 40px; }
+  .nav.next { right: max(8px, env(safe-area-inset-right)); width: 176px; }
+  .nav.prev { left: auto; right: calc(max(8px, env(safe-area-inset-right)) + 182px); padding-inline: 2px 10px; }
+  .nav.prev:disabled { display: none; }
+
+  .fc { display: grid; grid-template-columns: minmax(0, 1fr) min(44%, 340px); }
+  .map { height: 100%; min-height: 0; }
+  .panel { height: 100%; max-height: none; padding: 8px max(14px, env(safe-area-inset-right)) 10px 14px; gap: 7px; }
+
+  .story { padding: 8px 16px; }
+  .story .eyebrow, .fig figcaption span { display: none; }
+  .story h2 { font-size: 18px; }
+  .big b { font-size: 24px; }
+  .fig .key { top: 46px; }
+  .pick { bottom: 8px; padding: 2px 4px; }
+  .pick > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .pick select { max-width: min(290px, 44vw); }
+  .nav small, .nav.next small { font-size: 14px; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
