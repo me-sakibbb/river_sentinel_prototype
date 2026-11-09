@@ -12,91 +12,84 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top">
-  <div class="wrap top-in">
-    <a class="name" href="#">Jamuna Bank Watch</a>
-    <nav class="jump" aria-label="Sections">
-      <a href="#forecast">Forecast</a>
-      <a href="#proof">Did it work?</a>
-      <a href="#how">How it works</a>
-    </nav>
-  </div>
-</header>
-
 <main>
-  <section class="hero wrap">
-    <p class="tag">Research prototype · no warnings are actually sent</p>
-    <h1>Every monsoon, Bangladesh's rivers swallow homes and farmland. This tool predicts <em>where</em>, before it happens.</h1>
-    <p class="lede">An AI model reads decades of satellite images and marks each 240&nbsp;m stretch of riverbank by how likely it is to be
-      lost this monsoon, so families and officials know where to act first.</p>
+  <section class="stage" id="carousel" aria-label="A three-step tour of the forecast">
+    <header class="bar">
+      <a class="name" href="#">Jamuna Bank Watch</a>
+      <ol class="stepper" id="stepper" aria-label="Steps">
+        <li><button type="button" data-step="0"><span class="dot">1</span><span class="lab"><span id="year">2026</span> forecast</span></button></li>
+        <li><button type="button" data-step="1"><span class="dot">2</span><span class="lab">Past forecast</span></button></li>
+        <li><button type="button" data-step="2"><span class="dot">3</span><span class="lab">What happened</span></button></li>
+      </ol>
+      <a class="to-details" href="#details">Details ↓</a>
+    </header>
+
+    <div class="viewport" id="viewport">
+      <div class="track" id="track">
+        <article class="slide fc" id="slide-forecast" aria-label="This year's forecast">
+          <div id="map" class="map"></div>
+          <aside class="panel">
+            <p class="eyebrow rise" style="--i:0">Research prototype · no warnings are sent</p>
+            <h1 class="rise" style="--i:1">Where the river may strike in <span id="year-h">2026</span></h1>
+            <p class="sub rise" id="fc-sub" style="--i:2"></p>
+            <div class="seg rise" id="sites" role="group" aria-label="Upazila" style="--i:3"></div>
+            <div class="stats rise" id="stats" style="--i:4"></div>
+            <div class="rise" style="--i:5">
+              <h2 class="mini" id="h-list">Riskiest stretches</h2>
+              <ol class="list" id="list" aria-labelledby="h-list"></ol>
+            </div>
+          </aside>
+        </article>
+
+        <article class="slide pa" id="slide-past" aria-label="A past forecast and what happened"></article>
+      </div>
+    </div>
+
+    <button type="button" class="nav prev" id="prev"><span class="ic" aria-hidden="true">‹</span><small id="prev-label"></small></button>
+    <button type="button" class="nav next nudge" id="next"><span class="ic" aria-hidden="true">›</span><small id="next-label"></small></button>
+    <p class="vh" id="announce" aria-live="polite"></p>
   </section>
 
-  <section class="sec wrap" id="forecast" aria-labelledby="h-forecast">
-    <div class="sec-head">
-      <p class="step">1 · This year</p>
-      <h2 id="h-forecast">Where the river is likely to strike in <span id="year">2026</span></h2>
-    </div>
-    <div class="forecast">
-      <div class="map-card"><div id="map" class="map"></div></div>
-      <aside class="side">
-        <div class="seg" id="sites" role="group" aria-label="Upazila"></div>
-        <div class="stats" id="stats"></div>
-        <div class="key">
-          <span><i style="background:var(--high)"></i>High alert</span>
-          <span><i style="background:var(--watch)"></i>Watch</span>
-          <span><i class="dot"></i>Erosion already seen by radar</span>
-        </div>
-        <h3 class="mini">Riskiest stretches <span>tap to zoom</span></h3>
-        <ol class="list" id="list"></ol>
-      </aside>
-    </div>
-  </section>
+  <section class="wrap details" id="details" aria-labelledby="h-details">
+    <h2 id="h-details">Details</h2>
 
-  <section class="sec wrap" id="proof" aria-labelledby="h-proof">
-    <div class="sec-head">
-      <p class="step">2 · The test</p>
-      <h2 id="h-proof">Did it work? A past forecast next to what really happened</h2>
-      <p class="sub">The forecast was made in March, before the monsoon, by a model that had never seen that year.</p>
+    <div class="row" id="score">
+      <h3>Track record</h3>
+      <div>
+        <p id="score-line"></p>
+        <div class="bars" id="bars"></div>
+        <p class="fine" id="score-fine"></p>
+      </div>
     </div>
-    <div id="compare"></div>
-  </section>
 
-  <section class="sec wrap" id="score" aria-labelledby="h-score">
-    <div class="sec-head">
-      <p class="step">3 · The score</p>
-      <h2 id="h-score"></h2>
-      <p class="sub" id="score-sub"></p>
+    <div class="row">
+      <h3>How it works</h3>
+      <ol class="steps">
+        <li><b>Predict</b> <span class="when">March, before the rains</span>
+          <p>The AI studies the dry-season satellite picture: how close the channel is, whether it is moving in, and where land
+            was lost before. Each stretch of bank gets a risk score.</p></li>
+        <li><b>Confirm</b> <span class="when">Every 12 days in the monsoon</span>
+          <p>Clouds hide the ground all monsoon, but radar sees through them. A second AI model checks where bank is actually
+            turning into river.</p></li>
+        <li><b>Warn</b> <span class="when">When both agree</span>
+          <p>People living on a high-alert stretch would get a Bangla SMS or voice call, and local officials a map. In this prototype
+            nothing is sent.</p></li>
+      </ol>
     </div>
-    <div class="bars" id="bars"></div>
-  </section>
 
-  <section class="sec wrap" id="how" aria-labelledby="h-how">
-    <div class="sec-head">
-      <p class="step">4 · How it works</p>
-      <h2 id="h-how">Three steps, every year</h2>
+    <div class="row">
+      <h3>Limits</h3>
+      <p>This is a research prototype. Not every High alert erodes: use it to decide where to check first. The model can't see bank
+        protection such as geobags, so protected banks may be over-flagged.</p>
     </div>
-    <ol class="steps">
-      <li><span class="when">March, before the rains</span><b>Predict</b>
-        <p>The AI studies the dry-season satellite picture: how close the channel is, whether it is moving in, and where land
-          was lost before. Each stretch of bank gets a risk score.</p></li>
-      <li><span class="when">Every 12 days in the monsoon</span><b>Confirm</b>
-        <p>Clouds hide the ground all monsoon, but radar sees through them. A second AI model checks where bank is actually
-          turning into river.</p></li>
-      <li><span class="when">When both agree</span><b>Warn</b>
-        <p>People living on a high-alert stretch would get a Bangla SMS or voice call, and local officials a map. In this prototype
-          nothing is sent.</p></li>
-    </ol>
+
+    <div class="row">
+      <h3>Sources</h3>
+      <p>Imagery: Copernicus Sentinel-1/2 (ESA), Landsat (USGS/NASA), via Google Earth Engine. Boundaries © OpenStreetMap contributors.
+        Basemap © Esri. <a href="https://github.com/me-sakibbb/river_sentinel_prototype">Code and full technical results</a></p>
+    </div>
   </section>
 </main>
-
-<footer class="foot">
-  <div class="wrap">
-    <p><b>Limits.</b> Not every High alert erodes: use it to decide where to check first. The model can't see bank protection such as
-      geobags, so protected banks may be over-flagged.</p>
-    <p>Imagery: Copernicus Sentinel-1/2 (ESA), Landsat (USGS/NASA), via Google Earth Engine. Boundaries © OpenStreetMap contributors.
-      Basemap © Esri. <a href="https://github.com/me-sakibbb/river_sentinel_prototype">Code and full technical results</a></p>
-  </div>
-</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="data/results.js" onerror="window.RESULTS=null"></script>
